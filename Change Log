@@ -9,6 +9,10 @@ Files Added & Changed:
   - index.html
   - saved_recipes.html
   - search.html
+Functionality Added/Worked on:
 We made .html files for the different pages of the webpage. We worked on the linking functionality between pages. On the home page (index.html), we made a recipe of the day section and a top recipes section.
 The saved recipes and search sections have the same code as the home page currently, but we will make changes to these next time we meet. Additionaly, we decided that when we press on a certain recipe card,
 a modal display of the recipe will be shown rather than a whole other page. We will work on implementing this next time we meet.
+Issues/Confusions:
+  - Figuring out how to push work onto Github (using branches)
+  - We somehow could not push our work to the main branch as it said that there was information that on the local that was not on the remote. 
