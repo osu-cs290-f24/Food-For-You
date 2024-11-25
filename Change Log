@@ -8,7 +8,7 @@ This file is for updating the rest of the team on progress made after working. T
 Files Added & Changed:
   - index.html
   - saved_recipes.html
-  - search.html
+  - search_page.html
 Functionality Added/Worked on:
 We made .html files for the different pages of the webpage. We worked on the linking functionality between pages. On the home page (index.html), we made a recipe of the day section and a top recipes section.
 The saved recipes and search sections have the same code as the home page currently, but we will make changes to these next time we meet. Additionaly, we decided that when we press on a certain recipe card,
@@ -18,5 +18,15 @@ Issues/Confusions:
   - We somehow could not push our work to the main branch as it said that there was information that on the local that was not on the remote. 
   
 
-11/24/2024
-- Seeing if this works :)
+11/24/2024 7:30 - 8:30PM - Valerie and Dristi HTML Work Session
+Files Changed:
+  - saved_recipes.html
+  - search_page.html
+Functionality Added/Worked on:
+ Both
+    Figured out how to use Github workflow (branches, pull, and merge).
+  Valerie - search_page.html
+    Reformatted sections (made six different recipe cards - we will add more once we have the data for all the recipes, this is just for formatting the CSS). This page will showcase all the recipes and will be
+    filtered based on what the user is looking for. Started adding filter options (specifically the type of meal). Plan to have text filter, star rating filter, and type of meal filter.
+  Dristi - saved_recipes.html
+    Got rid of some content in the saved recipes. Creating a template for a recipe card so we can use for handlebars.
