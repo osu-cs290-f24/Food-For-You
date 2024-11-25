@@ -8,7 +8,9 @@
     </head>
     <body>
     <header class="header">
-        <div class="logo">Food For You Search Page</div>
+        <div class="logo">Food For You</div>
+        <div class="title">Search</div>
+        <div class="search-bar"></div>
         <nav class="navigation">
             <a href="saved_recipes.html">SAVED RECIPES</a>
             <a href="#">SEARCH</a>
@@ -16,25 +18,52 @@
         </nav>
     </header>
 
-    <!-- Featured Recipes Section -->
-    <section class="featured-recipes">
-        <h1>Recipe of the Day</h1>
-        <h1>Top Recipes</h1>
+    <aside class="filter-container">
+        <h2>Filters</h2>
+        <div class="filter-input-container">
+            <label for="filter-main-meal" class="filter-input-label">Meal Type</label>
+            <div class="filter-input-element">
+              <select id="filter-main-meal" class="filter-input" name="filter-main-meal">
+                <option selected value="">Any</option>
+                <option>Breakfast</option>
+                <option>Lunch</option>
+                <option>Dinner</option>
+                <option>Brunch</option>
+                <option>Midnight Snack</option>
+                <option>Dessert</option>
+              </select>
+            </div>
+          </div>
+    </aside>
+
+    <!-- Searched Recipes Section -->
+    <section class="searched-recipes">
         <div class="recipes-grid">
             <div class="recipe-card">
+                <h2>Recipe1</h2>
                 <img src=".jpg" alt="Name of section">
-                <h2>Seasonal</h2>
             </div>
             <div class="recipe-card">
-                <img src=".jpg" alt="Name of section">
                 <h2>Recipe2</h2>
+                <img src=".jpg" alt="Name of section">
             </div>
             <div class="recipe-card">
-                <img src=".jpg" alt="Name of section">
                 <h2>Recipe3</h2>
+                <img src=".jpg" alt="Name of section">
+            </div>
+            <div class="recipe-card">
+                <h2>Recipe4</h2>
+                <img src=".jpg" alt="Name of section">
+            </div>
+            <div class="recipe-card">
+                <h2>Recipe5</h2>
+                <img src=".jpg" alt="Name of section">
+            </div>
+            <div class="recipe-card">
+                <h2>Recipe6</h2>
+                <img src=".jpg" alt="Name of section">
             </div>
         </div>
-        <a href="#" class="all-recipes-link">All Recipes →</a>
     </section>
     <section class="footer">
         <div class="social-icons">
