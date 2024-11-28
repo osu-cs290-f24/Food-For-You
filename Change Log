@@ -30,3 +30,10 @@ Functionality Added/Worked on:
     filtered based on what the user is looking for. Started adding filter options (specifically the type of meal). Plan to have text filter, star rating filter, and type of meal filter.
   Dristi - saved_recipes.html
     Got rid of some content in the saved recipes. Creating a template for a recipe card so we can use for handlebars.
+
+11/27/2024 5-6PM - Valerie HTML Work Session
+Files changed:
+  - search_page.html
+Functionality Added/Worked on:
+  Finished the filters (text, star rating, type of meal filters). CSS can start. Planning to add little images for the star rating filters rather than text and including a search icon in the search bar. 
+
