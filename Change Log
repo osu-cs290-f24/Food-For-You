@@ -37,3 +37,9 @@ Files changed:
 Functionality Added/Worked on:
   Finished the filters (text, star rating, type of meal filters). CSS can start. Planning to add little images for the star rating filters rather than text and including a search icon in the search bar. 
 
+11/29/2024 3:30PM - 4:45PM - Anthony CSS Work Session
+Files Added & Changed:
+  - style.css
+Functionality Added/Worked on:
+  Created the css file that was based on the previous template. Edited the header with a black background and a white text. Decided to center align the text within the recipe cards as well as the title for the homepage.
+  (In-Progress) Looking to format the buttons correctly, add photos to the website, and would like to center the title for the search page.
