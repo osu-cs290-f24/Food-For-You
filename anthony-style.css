@@ -1,0 +1,160 @@
+/* CSS Based off of the Template */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #000;
+    /* Added a black background with white text */
+    background-color: purple;
+    color: #fff;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navigation {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.social-icons img {
+    width: 20px;
+    height: 20px;
+}
+
+.Featured Recipes Section
+.featured-recipes {
+    text-align: center;
+    padding: 2rem;
+}
+
+.featured-recipes h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1rem;
+    /* Aligned the text to center within the recipes */
+    text-align: center;
+}
+
+.recipes-grid {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.recipe-card {
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    background-color: #efefef;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: auto;
+}
+
+.recipe-card h2 {
+    font-size: 1.25rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.all-recipes-link {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.25rem;
+    transition: color 0.3s;
+}
+
+.all-recipes-link:hover {
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .recipes-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* "IN-PROGRESS: Attempting to make the same button utilized for Benny's List */
+#sell-something-button {
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    background-color: orange;
+    border: 1px solid #ababab;
+    border-radius: 5px;
+    font-weight: lighter;
+    cursor: pointer;
+} 
+
+/* Filter and search */
+.filter-container {
+    min-width: 200px;
+    max-width: 200px;
+    margin: 10px 10px auto 10px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #efefef;
+  }
+
+  .filter-input-container {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .filter-input-element {
+    margin: 0 5px;
+    flex: 1 1 100%;
+  }
+  
+  .filter-input {
+    font-size: 14px;
+    width: 50%;
+    margin-left: 10px;
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 3px;
+  }
+  
+  .filter-fieldset {
+    flex: 1 100%;
+    border: 1px solid #ababab;
+  }
+
+  .recipes-grid {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .modal-header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
