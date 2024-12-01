@@ -13,7 +13,7 @@ body {
     padding: 1rem 2rem;
     border-bottom: 1px solid #000;
     /* Added a black background with white text */
-    background-color: #000;
+    background-color: purple;
     color: #fff;
 }
 
@@ -148,4 +148,13 @@ body {
     flex: 1 100%;
     border: 1px solid #ababab;
   }
-  
+
+  .recipes-grid {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .modal-header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
