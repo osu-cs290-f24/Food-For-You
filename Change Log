@@ -44,8 +44,9 @@ Functionality Added/Worked on:
   Created the css file that was based on the previous template. Edited the header with a black background and a white text. Decided to center align the text within the recipe cards as well as the title for the homepage.
   (In-Progress) Looking to format the buttons correctly, add photos to the website, and would like to center the title for the search page.
 
-11/30/2024 4:15PM-4:40PM
+11/30/2024 4:15PM-4:50PM
 Files Changed:
   - style.css
 Functionlity Added/Worked on:
   Added some padding within the recipes-grid and modal-heading. Also replaced the header background-color from black to purple, to look more like the concept design.
+  Also changed the filter input background color.
