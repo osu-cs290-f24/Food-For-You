@@ -96,5 +96,3 @@ Of note:
   - Not ready to remove index.html, still working on getting everything into templates. Even when we do remove index.html, I want to retain a copy we can reference in case we need to.
   - Commit went through smoothly and retained Anthony's .css changes.
 
-
-  Changed the font color as well as the background color of the recipe cards. Also edited the search bar on the search page through both CSS and HTML.
