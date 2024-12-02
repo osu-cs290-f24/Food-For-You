@@ -3,7 +3,7 @@
 body {
     font-family: Cambira, monospace;
     background-color: #fff;
-    color: #000;
+    color: white;
 }
 
 .header {
@@ -70,7 +70,7 @@ body {
     border-radius: 10px;
     overflow: hidden;
     text-align: left;
-    background-color: #efefef;
+    background-color: rgb(179, 186, 194);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
