@@ -97,3 +97,8 @@ Of note:
   - Not ready to remove index.html, still working on getting everything into templates. Even when we do remove index.html, I want to retain a copy we can reference in case we need to.
   - Commit went through smoothly and retained Anthony's .css changes.
 
+12/2/2024 ~ 2:30PM - Valerie HTML/CSS Work
+Files changed:
+  - index.html, search_page.html, saved_recipes.html, style.css
+Files Created:
+  - Created three dropdown menus in the navigation header (meal type, by rating, by season)
