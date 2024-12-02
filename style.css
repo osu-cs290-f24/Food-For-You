@@ -1,7 +1,7 @@
 /* CSS Based off of the Template */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Cambira, monospace;
     background-color: #fff;
     color: #000;
 }
@@ -11,9 +11,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    border-bottom: 1px solid #000;
     /* Added a black background with white text */
-    background-color: purple;
+    background-color: rgb(108, 121, 148);
     color: #fff;
 }
 
@@ -36,8 +35,12 @@ body {
 }
 
 .social-icons img {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
+}
+
+#recipe-of-the-day {
+    width: 500px;
 }
 
 .Featured Recipes Section
@@ -101,6 +104,15 @@ body {
         flex-direction: column;
         align-items: center;
     }
+}
+
+.saved-about {
+    text-align: center;
+    background-color: rgb(179, 186, 194);
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin-top: 15px;
 }
 
 /* "IN-PROGRESS: Attempting to make the same button utilized for Benny's List */
