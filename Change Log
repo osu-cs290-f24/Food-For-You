@@ -44,9 +44,26 @@ Functionality Added/Worked on:
   Created the css file that was based on the previous template. Edited the header with a black background and a white text. Decided to center align the text within the recipe cards as well as the title for the homepage.
   (In-Progress) Looking to format the buttons correctly, add photos to the website, and would like to center the title for the search page.
 
-11/30/2024 4:15PM-4:50PM
+11/30/2024 4:15PM-4:50PM - Anthony CSS Work Session
 Files Changed:
   - style.css
 Functionlity Added/Worked on:
   Added some padding within the recipes-grid and modal-heading. Also replaced the header background-color from black to purple, to look more like the concept design.
   Also changed the filter input background color.
+
+12/1/2024 5-6PM - Valerie HTML & CSS Work Session
+Files Changed:
+  - index.html
+  - search_page.html
+  - saved_recipes.html
+Functionality Added/Worked on:
+  Changed the navigation tabs (removed home and now when you press "Food For You" you are redirected back to home page & fixed styling of it). Added all sample recipe cards to search page and added a post to 
+  saved recipes page. Added sample recipe cards to the webpage (need to add some kind of implementation to "save" recipe - maybe by pressing a star a property of the recipe is set to true and the recipe is added
+  to the saved recipes page). Added social media logos and clicking on them goes to their specific pages. Added caption to saved recipes pages that explains how to save a recipe and what exactly you can do on the saved
+  recipes page (add new recipes which will automatically be added to your saved recipes and edit recipes with your notes).
+Need to Do for HTML & CSS:
+  - Add new recipe button
+  - Edit recipe button
+  - Save recipe button
+  - Want to make recipe of the day have a longer width rather than height to make it stand out (need to figure out how to do - so far made an id for it)
+  - Make recipe page when you click on a recipe with information (instructions, ingredients, etc.) - JS Side too
