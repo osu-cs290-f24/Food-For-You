@@ -73,12 +73,14 @@ Need to Do for HTML & CSS:
 
 12/1/2024 7-8PM - Savhanna created index.js for Java Script work with Dristi
 
-12/1/2024 12:15PM -12:55PM - Anthony CSS Work Session
+12/1/2024 12:15PM-12:55PM / 2:00PM-2:15PM - Anthony CSS & HTML Work Session
 Files Changed:
   - style.css
+  - search_page.html
 Functionality Added/Worked on:
   Compressed h1 and the search bar margins and added padding from the left for both h1 and search bar. Also added background color to match the header with h1, search bar, and filter input.
   Changed the font color as well as the background color of the recipe cards.
+  Changed the font color as well as the background color of the recipe cards. Also edited the search bar on the search page through both CSS and HTML.
 
 12/2/2024 ~12-1PM - Brandon Beene - Begin Server-side JS work
 Files changed: N/A 
@@ -94,3 +96,5 @@ Of note:
   - Not ready to remove index.html, still working on getting everything into templates. Even when we do remove index.html, I want to retain a copy we can reference in case we need to.
   - Commit went through smoothly and retained Anthony's .css changes.
 
+
+  Changed the font color as well as the background color of the recipe cards. Also edited the search bar on the search page through both CSS and HTML.
