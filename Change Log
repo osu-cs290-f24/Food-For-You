@@ -73,8 +73,9 @@ Need to Do for HTML & CSS:
 
 12/1/2024 7-8PM - Savhanna created index.js for Java Script work with Dristi
 
-12/1/2024 12:15PM -12:45PM - Anthony CSS Work Session
+12/1/2024 12:15PM -12:55PM - Anthony CSS Work Session
 Files Changed:
   - style.css
 Functionality Added/Worked on:
   Compressed h1 and the search bar margins and added padding from the left for both h1 and search bar. Also added background color to match the header with h1, search bar, and filter input.
+  Changed the font color as well as the background color of the recipe cards.
