@@ -3,7 +3,7 @@
 body {
     font-family: Cambira, monospace;
     background-color: #fff;
-    color: #000;
+    color: white;
 }
 
 .header {
@@ -70,7 +70,7 @@ body {
     border-radius: 10px;
     overflow: hidden;
     text-align: left;
-    background-color: #efefef;
+    background-color: rgb(179, 186, 194);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -134,14 +134,16 @@ body {
     margin: 10px 10px auto 10px;
     padding: 20px;
     border-radius: 5px;
-    background-color: #efefef;
+    background-color: rgb(108, 121, 148);
   }
 
   .filter-input-container {
     width: 100%;
-    margin: 20px 0;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
+    background-color: rgb(108, 121, 148);
+    color: white;
   }
 
   .filter-input-element {
@@ -173,3 +175,19 @@ body {
     padding-top: 30px;
     padding-bottom: 30px;
   }
+
+
+h1 {
+    background-color: rgb(108, 121, 148);
+    color: white;
+    margin: 0;
+    padding-left: 30px;
+}
+
+.filter-input-label {
+    padding-left: 30px;
+}
+
+h2 {
+    color: white;
+}
