@@ -1,0 +1,38 @@
+[
+    {
+        "Name": "Apple Pie from Scratch",
+        "imgURL": "https://sallysbakingaddiction.com/wp-content/uploads/2015/10/chai-spice-apple-pie.jpg",
+        "rating": "",
+        "link-to-recipe": ""
+    },
+    {
+        "Name": "Vegetable Pasta Bake",
+        "imgURL": "https://www.inspiredtaste.net/wp-content/uploads/2019/04/Vegetable-Baked-Pasta-Recipe-3-1200.jpg",
+        "rating": "",
+        "link-to-recipe": ""
+    },
+    {
+        "Name": "Garlic Butter Steak Yakisoba",
+        "imgURL": "https://www.krumpli.co.uk/wp-content/uploads/2024/01/Spicy-Beef-Yakisoba-Noodles-1-1600.jpg",
+        "rating": "",
+        "link-to-recipe": ""
+    },
+    {
+        "Name": "Pigs in a Blanket",
+        "imgURL": "https://hips.hearstapps.com/hmg-prod/images/pigs-in-a-blanket-index-657cac59d58db.jpg?crop=0.6667767685108725xw:1xh;center,top&resize=1200:*",
+        "rating": "",
+        "link-to-recipe": ""
+    },
+    {
+        "Name": "Pad Thai",
+        "imgURL": "https://www.recipetineats.com/tachyon/2020/01/Chicken-Pad-Thai_9-SQ.jpg",
+        "rating": "",
+        "link-to-recipe": ""
+    },
+    {
+        "Name": "Breakfast Smoothie Bowl",
+        "imgURL": "https://simplegreensmoothies.com/wp-content/uploads/tropical-smoothie-bowl-mango-healthy-plant-based-2.jpg",
+        "rating": "",
+        "link-to-recipe": ""
+    }
+]
