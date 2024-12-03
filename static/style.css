@@ -227,6 +227,11 @@ h1 {
 
 h2 {
     color: white;
+    cursor: pointer;
+}
+
+h2:hover {
+    text-decoration: underline;
 }
 
 .footer {
