@@ -104,7 +104,7 @@ function filterCards() {
 }
 
 /*
- * This function clears all filter values, causing all posts to be re-inserted
+ * This function clears all filter values, re-inserting recipes
  * into the DOM.
  */
 function clearFiltersAndReinsertRecipes() {
