@@ -102,3 +102,11 @@ Files changed:
   - index.html, search_page.html, saved_recipes.html, style.css
 Files Created:
   - Created three dropdown menus in the navigation header (meal type, by rating, by season)
+12/2/2024 ~ 9:30PM - Savhanna index.js work
+Files Changed:
+  - index.js
+Functionality Added/Worked on:
+  - Event listeners, dropdown, recipe card/container
+  - Functions: add new recipe, remove recipe, display recipe, filter recipes by search criteria, clears all filter values. 
+  - When dropdown selection is made, clicking will direct user to page containing all matched criteria.
+  - User should be able to select title of recipe and directed to recipe. Need to check with group about implemetation of recipe card and functionality. Pop up, filter, etc. 
