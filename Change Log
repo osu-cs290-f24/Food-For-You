@@ -103,10 +103,14 @@ Files changed:
 Files Created:
   - Created three dropdown menus in the navigation header (meal type, by rating, by season)
 
-12/3/2024 ~ 12:24AM - Dristi Handlebars recipe template and page
-Create a very rough template for the recipe card and recipe page. Allowed
-us to know what to add to the .json and what data we will need. Need to edit
-some parts as well as create some CSS for it.
+12/2/2024 ~ 9:30PM - Savhanna index.js work
+Files Changed:
+  - index.js
+Functionality Added/Worked on:
+  - Event listeners, dropdown, recipe card/container
+  - Functions: add new recipe, remove recipe, display recipe, filter recipes by search criteria, clears all filter values. 
+  - When dropdown selection is made, clicking will direct user to page containing all matched criteria.
+  - User should be able to select title of recipe and directed to recipe. Need to check with group about implemetation of recipe card and functionality. Pop up, filter, etc. 
 
 12/3/2024 ~ 2:50PM-3:00PM - Anthony CSS Work
 Files changed:
@@ -114,4 +118,8 @@ Files changed:
 Functionality Added/Worked on:
   - Utilized cursor: pointer and text-decoration: underline for h2 the recipe cards.
 
+12/3/2024 ~ 12:24AM - Dristi Handlebars recipe template and page
+Create a very rough template for the recipe card and recipe page. Allowed
+us to know what to add to the .json and what data we will need. Need to edit
+some parts as well as create some CSS for it.
 
