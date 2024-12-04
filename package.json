@@ -1,0 +1,36 @@
+{
+  "name": "final-project-food-for-you",
+  "version": "1.0.0",
+  "description": "Recipes and Ratings",
+  "main": "server.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
+    "build-template": "handlebars views/partials/recipe-cardTemplate.handlebars -f static/recipe-cardTemplate.js",
+    "start": "npm run build-template && node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "express-handlebars": "^8.0.1",
+    "handlebars": "^4.7.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osu-cs290-f24/final-project-food-for-you.git"
+  },
+  "keywords": [
+    "food",
+    "recipes",
+    "meals",
+    "snacks",
+    "how",
+    "to",
+    "cook"
+  ],
+  "author": "James Beene, Savhanna Beene, Anthony Lucero, Dristi Patel, Valerie Lam",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/osu-cs290-f24/final-project-food-for-you/issues"
+  },
+
+  "homepage": "https://github.com/osu-cs290-f24/final-project-food-for-you#readme"
+}
