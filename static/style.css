@@ -17,7 +17,7 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     text-decoration: none;
     color: white; 
@@ -27,7 +27,7 @@ body {
     display: flex;
     gap: 1rem;
     align-items: center;
-    margin-left: 500px;
+    margin-left: 400px;
 }
 
 .navigation a {
