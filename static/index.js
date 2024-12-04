@@ -4,14 +4,13 @@ var dropdown = document.querySelectorAll('.dropdown');
 var recipeCards = document.querySelectorAll('.recipe-card');
 
 //Event listeners
-document.getElementById("title").addEventListener("click", function() {
-  window.location.href = "your-target-page.html";
-});
-document.querySelector('#recipe-type-filter').addEventListener('change', filterCards);
-document.querySelector('#recipe-season-filter').addEventListener('change', filterCards);
-document.querySelector('#recipe-rating-filter').addEventListener('change', filterCards);
-document.getElementById('recipe-of-the-day').addEventListener('click', function() {
-  alert('Recipe of the Day');
+document.querySelectorAll('h2').forEach(function (h2) {
+  h2.addEventListener("click", function() {
+    var link = this.getAttribute('href');
+    if (link) {
+      window.location.href = this.href;
+    }
+  });
 });
 
 /*
@@ -56,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
       displayRecipe(recipeTitle, recipeIngredients);
     });
   });
+
   // Dropdown
   dropdown.forEach(function(dropdown) {
     var button = dropdown.querySelector('.dropbtn');
@@ -67,16 +67,24 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 /*
+ * This function updates recipe when added/removed
+ */
+function updateRecipe() {
+  recipeCards = document.querySelectorAll('.recipe-card');
+}
+
+/*
  * This function to display recipe
  */
 function displayRecipe(title, ingredients) {
   var modal = document.getElementById('recipeModal');
   if (modal) {
-  modal.querySelector('h2').textContent = title;
-  modal.querySelector('.ingredients').textContent = ingredients;
-  modal.classList.add('show');
+    modal.querySelector('h2').textContent = title;
+    modal.querySelector('.ingredients').textContent = ingredients;
+    modal.classList.add('show');
   }
 }
+
 
 /*
  * This function to filter recipes by search criteria
@@ -116,4 +124,5 @@ function clearFiltersAndReinsertRecipes() {
     card.style.display = 'inline-block';
   });
 }
+
 
