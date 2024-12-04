@@ -102,6 +102,7 @@ Files changed:
   - index.html, search_page.html, saved_recipes.html, style.css
 Files Created:
   - Created three dropdown menus in the navigation header (meal type, by rating, by season)
+
 12/2/2024 ~ 9:30PM - Savhanna index.js work
 Files Changed:
   - index.js
@@ -116,3 +117,9 @@ Files changed:
   - style.css
 Functionality Added/Worked on:
   - Utilized cursor: pointer and text-decoration: underline for h2 the recipe cards.
+
+12/3/2024 ~ 12:24AM - Dristi Handlebars recipe template and page
+Create a very rough template for the recipe card and recipe page. Allowed
+us to know what to add to the .json and what data we will need. Need to edit
+some parts as well as create some CSS for it.
+
