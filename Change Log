@@ -123,6 +123,13 @@ Create a very rough template for the recipe card and recipe page. Allowed
 us to know what to add to the .json and what data we will need. Need to edit
 some parts as well as create some CSS for it.
 
+12/4/2024 ~ 11:AM - Valerie HTML Work
+Files changed:
+  - .html files
+  - header.handlebars
+Functionality Added/Worked on:
+  - Added logo image to header of html and templates
+
 12/4/2024 ~ 1:25PM - Anthony CSS Work
 Files changed:
   - style.css
