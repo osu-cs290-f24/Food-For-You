@@ -27,6 +27,7 @@ body {
     display: flex;
     gap: 1rem;
     align-items: center;
+    margin-left: 500px;
 }
 
 .navigation a {
@@ -240,4 +241,9 @@ h2:hover {
     align-items: center;
     padding: 1rem 2rem;
     background-color: rgb(108, 121, 148);
+}
+
+.logo-image {
+    width: 75px;
+    height: 75px;
 }
