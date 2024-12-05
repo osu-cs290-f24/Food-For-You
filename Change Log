@@ -171,6 +171,7 @@ dropdown, all recipes.
   - package-lock.JSON - this file is generated when we run npm install using node.js
  Files Changed:
   - server.js added a few requests with comments for future additions.
+    - added functionality to home page to randomly generate a featured recipe, and 3 random recipes known as "explore recipes"
   - recipe-cardData.JSON added a lot of recipes to the file for use on the site. 
       - also added variables for more ease of use of the JSON file
       - rating is an int as a number to represent how many stars the recipe gets. we run a high quality establishment so the recipes with 0 just haven't gotten their stellar ratings yet. 

@@ -10,9 +10,6 @@ app.set('view engine', 'handlebars');
 
 app.set('views', './views');
 
-//use 'static' directory 
-app.use(express.static(path.join(__dirname, 'static')));
-
 app.engine('handlebars', exphbs.engine({
     defaultLayout: 'main',
     layoutsDir: path.join(__dirname, "views/layouts"),
@@ -20,12 +17,18 @@ app.engine('handlebars', exphbs.engine({
 }));
 
 app.get('/', function (req, res) {
+
+    var random = Math.floor(Math.random() * recipeCard.length);
+    var explore = [];
+    explore[0] = recipeCard[Math.floor(Math.random() * recipeCard.length)];
+    explore[1] = recipeCard[Math.floor(Math.random() * recipeCard.length)];
+    explore[2] = recipeCard[Math.floor(Math.random() * recipeCard.length)];
     
-    //add recipe of the day rendering here
-
-
     //render a few random recipes the user hasn't saved
-    res.render('recipe-cardTemplate', {recipeCard});
+    res.render('page', {
+        recipeoftheday: recipeCard[random],
+        recipe: explore
+    });
     
 });
 
@@ -58,12 +61,15 @@ app.get('/saved', function (req, res) {
     res.status(200).render('recipe-cardTemplate', {saved: true, recipeCard});
 });
 
+//use 'static' directory
+app.use(express.static(path.join(__dirname, 'static')));
+
 //listen on port 300
 app.listen(port, function () {
 	console.log("== Server is listening on: ", port);
 });
 
 //anything else, throw 404 error...leave this at the bottom
-app.get('*', function (req, res) {
-    res.status(404).render('404');
-});
+// app.get('*', function (req, res) {
+//    res.status(404).render('404');
+// });
