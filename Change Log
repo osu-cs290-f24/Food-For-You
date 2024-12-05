@@ -147,3 +147,9 @@ information and sent it to group. Brandon added to file. Checked and recipe link
 funcionality. Save button changes to remove, and if clicked, a 5 second timer of an undo button appears. 
 -Still needed: Search by text, compare with recipe title(h2). Add visual changes to card if user hovers over? Check with Valerie. Have group check 
 over file and make edits as needed. Once JSON is completed, check functionality of all features. 
+
+12/5/2024 ~ 12:50PM - Savhanna index.js work
+Files Changed:
+  - index.js
+Functionality Added/Worked on: Fixed grammar/naming conflicts, added alert to fetch. Worked on structure to make more modular for recipe card
+dropdown, all recipes.
