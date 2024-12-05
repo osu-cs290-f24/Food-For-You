@@ -1,0 +1,13 @@
+    <section class="featured-recipes"><!-- Featured Recipes Section -->
+        <h1>Featured Recipe</h1>
+            <div class="recipes-grid">
+                {{> recipe-cardTemplate recipeoftheday}}
+            </div>
+        <h1>Explore Recipes</h1>
+        <div class="recipes-grid">
+            {{#each recipe}}
+            {{> recipe-cardTemplate}}
+            {{/each}}
+        </div>
+        <a href="search_page.html" class="all-recipes-link">All Recipes →</a>
+    </section>
