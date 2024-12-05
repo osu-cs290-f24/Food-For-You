@@ -48,6 +48,9 @@ var allRecipes = document.querySelector('.all-recipes-link');
 /*
 * This function to add new recipe
 */
+
+//revise, should only go into recipe-cardData.JSON and change "saved": to true
+
 function addSavedRecipe(recipe) {
   if (savedRecipesGrid) {
     var recipeCard = document.createElement('div');
@@ -83,6 +86,9 @@ function addSavedRecipe(recipe) {
 * This function helps button logic, if saved button is clicked,
 * changes to remove, with a 5 second timer. 
 */
+
+//revise, should only go into recipe-cardData.JSON and change "saved": to false
+
 function saveRemoveButton(recipeCard, saveButton) {
   if (saveButton.textContent === 'SAVE') {
     saveButton.textContent = 'REMOVE';
