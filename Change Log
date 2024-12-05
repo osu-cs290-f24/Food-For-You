@@ -136,6 +136,14 @@ Files changed:
 Functionality Added/Worked on:
  - Decreased the logo image and was able to relocate the logo text right next to the logo image. Also increased the logo text font.
 
+ 12/4/2024 ~afternoon - Brandon server-side setup cont'd
+Files Changed: 
+  - server.js
+  - added package.json
+Functionality Added/Worked on:
+  - server.js added app. functions for using express.static, listening on port 3000, and a catch all 404 error function.
+  - server.js added variables needed such as using the .JSON file as an array of objects.
+
 12/3-4/2024 ~ 10:50PM - Savhanna index.js work
 Files Changed:
   - index.js
