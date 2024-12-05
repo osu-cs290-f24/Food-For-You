@@ -9,7 +9,7 @@
     "start": "npm run build-template && node server.js"
   },
   "dependencies": {
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "express-handlebars": "^8.0.1",
     "handlebars": "^4.7.8"
   },
@@ -31,6 +31,5 @@
   "bugs": {
     "url": "https://github.com/osu-cs290-f24/final-project-food-for-you/issues"
   },
-
   "homepage": "https://github.com/osu-cs290-f24/final-project-food-for-you#readme"
 }
