@@ -132,22 +132,7 @@ function clearFiltersAndReinsertRecipes() {
     card.style.display = 'inline-block';
   });
 }
-
-/*
-* This function displays random recipes
-*/
-function displayRandomRecipe() {
-  if (!recipes.length) {
-    alert('No recipes found');
-    return;
-  }
-  const random = Math.floor(Math.random() * recipes.length)
-  var recipe = recipes[random];
-  var recipeCard = document.querySelector('#recipe-of-the-day');
-  recipeCard.querySelector('img').src = recipe.img;
-  recipeCard.querySelector('h2').textContent = recipe.name;
-}
-
+ 
 /*
 * This function displays recipes
 */
