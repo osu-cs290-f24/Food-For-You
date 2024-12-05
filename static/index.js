@@ -3,30 +3,45 @@ var savedRecipesGrid = document.querySelector('.saved-recipes .recipes-grid');
 var dropdown = document.querySelectorAll('.dropdown');
 var recipes = [];
 
+
 fetch('recipe-cardData.JSON')
 .then((response) => response.json())
 .then((data) => {
   recipes = data;
   recipes.forEach(addSavedRecipe);
 })
+.catch(function (err) {
+  alert("An error occurred while retrieving recipe.")
+})
 
 //Recipe card
 document.addEventListener('click', function (event) {
   if (event.target.closest('.recipe-card')) {
     var card = event.target.closest('.recipe-card');
-    var recipeTitle = card.querySelector('h2').textContent;
+    var recipeName = card.querySelector('h2').textContent;
     var recipeImage = card.querySelector('img').src;
-    displayRecipe(recipeImage, recipeTitle);
+    displayRecipe({name: recipeName, img: recipeImage});
     }
   });
-  
+
 // Dropdown
 dropdown.forEach(function(dropdown) {
   var button = dropdown.querySelector('.dropbtn');
   var content = dropdown.querySelector('.dropdown-content');
   button.addEventListener('click', function(event) {
+    event.stopPropagation();
     content.classList.toggle('show');
   });
+});
+
+//All recipes
+var allRecipes = document.querySelector('.all-recipes-link');
+  allRecipes.addEventListener('click', function(event) {
+    event.preventDefault();
+    document.querySelector('.recipes-grid').scrollIntoView ({
+      behavior: 'smooth',
+      block: 'start',
+    });
 });
 
 
@@ -38,24 +53,25 @@ function addSavedRecipe(recipe) {
     var recipeCard = document.createElement('div');
     recipeCard.classList.add('recipe-card');
     recipeCard.setAttribute('name', recipe.type);
-    recipeCard.setAttribute('imageURL', recipe.season);
+    recipeCard.setAttribute('season', recipe.season);
     recipeCard.setAttribute('rating', recipe.rating);
     var img = document.createElement('img');
     img.src = recipe.img;
-    img.alt = recipe.title;
+    img.alt = recipe.name;
     
     var link = document.createElement('a');
     link.href = recipe['link-to-recipe'];
+    //new tab
     link.target  = '_blank';
-    var title = document.createElement('h2');
-    title.textContent = recipe.name;
-    link.appendChild(title);
+    var name = document.createElement('h2');
+    name.textContent = recipe.name;
+    link.appendChild(name);
 
     var saveButton = document.createElement('button');
     saveButton.classList.add('save-button');
     saveButton.type = 'button';
     saveButton.textContent = 'SAVE';
-    saveButton.addEventListener('clcik', () => saveRemoveButton(recipeCard, saveButton));
+    saveButton.addEventListener('click', () => saveRemoveButton(recipeCard, saveButton));
 
     recipeCard.appendChild(img);
     recipeCard.appendChild(link);
@@ -78,7 +94,7 @@ function saveRemoveButton(recipeCard, saveButton) {
     recipeCard.remove();
       }, 5000);
     saveButton.onclick = () => {
-      clearTimeout(undoTimer);
+      clearTimeout(timer);
       recipeCard.style.opacity = '1';
       saveButton.textContent = 'SAVE';
       saveButton.onclick = () => saveRemoveButton(recipeCard, saveButton);
@@ -97,7 +113,7 @@ function filterCards() {
   
   document.querySelectorAll('.recipe-card').forEach(function (card) {
     var recipeType = card.getAttribute('name').toLowerCase();
-    var recipeSeason = card.getAttribute('imageURL').toLowerCase();
+    var recipeSeason = card.getAttribute('season').toLowerCase();
     var recipeRating = card.getAttribute('rating').toLowerCase();
     
     var matchType = !type || recipeType.includes(type);
@@ -129,11 +145,14 @@ function clearFiltersAndReinsertRecipes() {
 * This function displays random recipes
 */
 function displayRandomRecipe() {
+  if (!recipes.length) {
+    return;
+  }
   const random = Math.floor(Math.random() * recipes.length)
   var recipe = recipes[random];
   var recipeCard = document.querySelector('#recipe-of-the-day');
   recipeCard.querySelector('img').src = recipe.img;
-  recipeCard.querySelector('h2').textContent = recipe.title;
+  recipeCard.querySelector('h2').textContent = recipe.name;
 }
 
 /*
@@ -142,7 +161,7 @@ function displayRandomRecipe() {
 function displayRecipe(recipe) {
   var modal = document.getElementById('recipeModal');
   if (modal) {
-    modal.querySelector('h2').textContent = recipe.title;
+    modal.querySelector('h2').textContent = recipe.name;
     modal.querySelector('img').src = recipe.img;
     modal.classList.add('show');
   }
