@@ -83,7 +83,6 @@ function filterCards() {
 
 /*
 * This function clears all filter values, re-inserting recipes
-* into the DOM.
 */
 function clearFiltersAndReinsertRecipes() {
   document.querySelector('#filter-main-meal').value = '';
@@ -106,4 +105,14 @@ function displayRandomRecipe() {
   recipeCard.querySelector('h2').textContent = recipe.title;
 }
 
-
+/*
+* This function displays recipes
+*/
+function displayRecipe(recipe) {
+  var modal = document.getElementById('recipeModal');
+  if (modal) {
+    modal.querySelector('h2').textContent = recipe.title;
+    modal.querySelector('img').src = recipe.img;
+    modal.classList.add('show');
+  }
+}
