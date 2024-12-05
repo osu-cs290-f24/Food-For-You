@@ -3,17 +3,6 @@ var savedRecipesGrid = document.querySelector('.saved-recipes .recipes-grid');
 var dropdown = document.querySelectorAll('.dropdown');
 var recipes = [];
 
-
-fetch('recipe-cardData.JSON')
-.then((response) => response.json())
-.then((data) => {
-  recipes = data;
-  recipes.forEach(addSavedRecipe);
-})
-.catch(function (err) {
-  alert("An error occurred while retrieving recipe.")
-})
-
 //Recipe card
 document.addEventListener('click', function (event) {
   if (event.target.closest('.recipe-card')) {
@@ -44,20 +33,15 @@ var allRecipes = document.querySelector('.all-recipes-link');
     });
 });
 
-
 /*
 * This function to add new recipe
 */
-
-//revise, should only go into recipe-cardData.JSON and change "saved": to true
 
 function addSavedRecipe(recipe) {
   if (savedRecipesGrid) {
     var recipeCard = document.createElement('div');
     recipeCard.classList.add('recipe-card');
-    recipeCard.setAttribute('name', recipe.type);
-    recipeCard.setAttribute('season', recipe.season);
-    recipeCard.setAttribute('rating', recipe.rating);
+   
     var img = document.createElement('img');
     img.src = recipe.img;
     img.alt = recipe.name;
@@ -74,10 +58,11 @@ function addSavedRecipe(recipe) {
     saveButton.classList.add('save-button');
     saveButton.type = 'button';
     saveButton.textContent = 'SAVE';
-    saveButton.addEventListener('click', () => saveRemoveButton(recipeCard, saveButton));
+    saveButton.addEventListener('click', () => saveRemoveButton(recipe, saveButton));
 
     recipeCard.appendChild(img);
     recipeCard.appendChild(link);
+    recipeCard.appendChild(saveButton);
     savedRecipesGrid.appendChild(recipeCard);
   }
 }
@@ -91,6 +76,7 @@ function addSavedRecipe(recipe) {
 
 function saveRemoveButton(recipeCard, saveButton) {
   if (saveButton.textContent === 'SAVE') {
+    recipe.saved = true;
     saveButton.textContent = 'REMOVE';
   }
   else {
@@ -102,12 +88,12 @@ function saveRemoveButton(recipeCard, saveButton) {
     saveButton.onclick = () => {
       clearTimeout(timer);
       recipeCard.style.opacity = '1';
+      recipe.saved = false;
       saveButton.textContent = 'SAVE';
       saveButton.onclick = () => saveRemoveButton(recipeCard, saveButton);
     };
   }
 }
-
 
 /*
 * This function to filter recipes by search criteria
@@ -152,6 +138,7 @@ function clearFiltersAndReinsertRecipes() {
 */
 function displayRandomRecipe() {
   if (!recipes.length) {
+    alert('No recipes found');
     return;
   }
   const random = Math.floor(Math.random() * recipes.length)
