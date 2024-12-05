@@ -135,6 +135,7 @@ Files changed:
   - style.css
 Functionality Added/Worked on:
  - Decreased the logo image and was able to relocate the logo text right next to the logo image. Also increased the logo text font.
+
 12/3-4/2024 ~ 10:50PM - Savhanna index.js work
 Files Changed:
   - index.js
