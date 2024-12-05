@@ -143,6 +143,7 @@ Functionality Added/Worked on:
   - Edited document, moved formatting to flow better. Added fetch to pull information from recipe-cardData.JSON, this allows cards to be
 filled with data. Edited recipe card, addSavedRecipe, filterCards, added displayRandomRecipe function to be used for a random recipe of the day.
 Need to add 3-4 additional recipes to recipe-cardData.JSON file for variety. Created text file for recipe-cardData.JSON that had needed
-information and sent it to group. Brandon added to file. Checked and recipe links are good to use. 
+information and sent it to group. Brandon added to file. Checked and recipe links are good to use. Added saveRemoveButton that helps with button
+funcionality. Save button changes to remove, and if clicked, a 5 second timer of an undo button appears. 
 -Still needed: Search by text, compare with recipe title(h2). Add visual changes to card if user hovers over? Check with Valerie. Have group check 
 over file and make edits as needed. Once JSON is completed, check functionality of all features. 
