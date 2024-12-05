@@ -50,11 +50,42 @@ function addSavedRecipe(recipe) {
     var title = document.createElement('h2');
     title.textContent = recipe.name;
     link.appendChild(title);
+
+    var saveButton = document.createElement('button');
+    saveButton.classList.add('save-button');
+    saveButton.type = 'button';
+    saveButton.textContent = 'SAVE';
+    saveButton.addEventListener('clcik', () => saveRemoveButton(recipeCard, saveButton));
+
     recipeCard.appendChild(img);
     recipeCard.appendChild(link);
     savedRecipesGrid.appendChild(recipeCard);
   }
 }
+
+/*
+* This function helps button logic, if saved button is clicked,
+* changes to remove, with a 5 second timer. 
+*/
+function saveRemoveButton(recipeCard, saveButton) {
+  if (saveButton.textContent === 'SAVE') {
+    saveButton.textContent = 'REMOVE';
+  }
+  else {
+    recipeCard.style.opacity = '0.5';
+    saveButton.textContent = 'UNDO';
+    const timer = setTimeout(() => {
+    recipeCard.remove();
+      }, 5000);
+    saveButton.onclick = () => {
+      clearTimeout(undoTimer);
+      recipeCard.style.opacity = '1';
+      saveButton.textContent = 'SAVE';
+      saveButton.onclick = () => saveRemoveButton(recipeCard, saveButton);
+    };
+  }
+}
+
 
 /*
 * This function to filter recipes by search criteria
@@ -116,3 +147,5 @@ function displayRecipe(recipe) {
     modal.classList.add('show');
   }
 }
+
+
