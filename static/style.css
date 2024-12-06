@@ -229,7 +229,6 @@ h1 {
 h2 {
     color: white;
     cursor: pointer;
-    text-decoration: none;
 }
 
 h2:hover {
@@ -269,4 +268,8 @@ h2:hover {
 
 .recipe-card .save-button:hover {
     background-color:rgb(108, 121, 148);
+}
+
+.recipes-grid h2 {
+    text-decoration: none;
 }
