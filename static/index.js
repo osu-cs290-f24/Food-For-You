@@ -3,6 +3,37 @@ var savedRecipesGrid = document.querySelector('.saved-recipes .recipes-grid');
 var dropdown = document.querySelectorAll('.dropdown');
 var recipes = [];
 
+//Add the recipe cared into the DOM by certain filter 
+function addRecipeCard(imgURL, name){
+  var recipeContent = Handlebars.templates.recipe-CardTemplact({
+    name:name,
+    imgURL:imgURL
+  })
+  var postsSection = document.getElementById('recipe-card')
+  postsSection.insertAdjacentHTML("beforeend", recipeContent)
+}
+window.addEventListener('DOMContentLoaded', function () {
+  //Save all recipes for filtering 
+    var recipeCards = document.getElementsByClassName('recipe-card')
+    for (var i = 0; i < recipeCards.length; i++) {
+      allPosts.push(parseRecipeCard(recipeCards[i]))
+  }
+
+
+})
+
+//Get the data of a recipe card to store into array of recipe card (create object for data)
+function parseRecipeCard(currRecipeCard){
+    //create recipe object 
+    var recipe = {}
+    //Get the recipe info from image element
+    var recipeImage = currRecipeCard.querySelector('img')
+    recipe.imgURL = recipeImage.src
+    recipe.name = recipeImage.alt
+    //Return the recipe object to store in array 
+    return recipe
+}
+
 //Recipe card
 document.addEventListener('click', function (event) {
   if (event.target.closest('.recipe-card')) {
