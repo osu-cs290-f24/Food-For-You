@@ -181,4 +181,6 @@ dropdown, all recipes.
 Files changed:
   - style.css
 Functionality Added/Worked on:
- - Added text-decoration: none to h2.
+  - Added text-decoration: none to h2.
+  - Reapplied text-decoration: none under a.
+  - Also added color:inherit within a.
