@@ -36,7 +36,7 @@ app.get('/', function (req, res) {
 app.get('/allrecipes', function (req, res) {
     
     //render all recipes, whether saved or not
-    res.render('recipe-cardTemplate', {
+    res.render('page', {
         all: true,    
         recipeCard
     });
@@ -71,7 +71,7 @@ app.get('/explore', function (req, res) {
 
 
     //render all recipes not saved
-    res.render('recipe-cardTemplate', {
+    res.render('page', {
         saved: false,
         unsaved
     });
@@ -92,7 +92,7 @@ app.get('/saved', function (req, res) {
         }
 
     // Render the saved recipes only
-    res.status(200).render('recipe-cardTemplate', {
+    res.status(200).render('page', {
         saved: true,
         saved
     });
