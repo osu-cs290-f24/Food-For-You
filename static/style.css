@@ -120,6 +120,7 @@ body {
     font-size: 1.25rem;
     padding: 1rem;
     text-align: center;
+    text-decoration: none;
 }
 
 .all-recipes-link {
@@ -268,8 +269,4 @@ h2:hover {
 
 .recipe-card .save-button:hover {
     background-color:rgb(108, 121, 148);
-}
-
-.recipes-grid h2 {
-    text-decoration: none;
 }
