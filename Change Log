@@ -176,3 +176,9 @@ dropdown, all recipes.
       - also added variables for more ease of use of the JSON file
       - rating is an int as a number to represent how many stars the recipe gets. we run a high quality establishment so the recipes with 0 just haven't gotten their stellar ratings yet. 
 
+
+12/5/2024 ~ 6:15PM - Anthony CSS Work
+Files changed:
+  - style.css
+Functionality Added/Worked on:
+ - Added text-decoration: none to h2.
