@@ -270,6 +270,7 @@ h2:hover {
     background-color:rgb(108, 121, 148);
 }
 
-.recipe-grid h2 {
+a {
     text-decoration: none;
+    color: inherit;
 }
