@@ -60,7 +60,7 @@ app.get('/explore', function (req, res) {
 
     //store all unsaved recipes into array
     var unsaved = [];
-    for(unsaved; i < recipeCard.length; i++) {
+    for(var i = 0; i < recipeCard.length; i++) {
         if (recipeCard[i].saved == true) {
             continue;
         }
@@ -82,7 +82,7 @@ app.get('/saved', function (req, res) {
 
         //store all saved recipes into array
         var saved = [];
-        for(saved; i < recipeCard.length; i++) {
+        for(var i = 0; i < recipeCard.length; i++) {
             if (recipeCard[i].saved == false) {
                 continue;
             }
