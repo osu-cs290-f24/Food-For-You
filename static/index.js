@@ -61,10 +61,6 @@ function addSavedRecipe(recipe) {
     //new tab
     link.target  = '_blank';
     link.textContent = recipe.name;
-    link.style.textDecoration = 'none';
-    link.style.color = 'inherit';
-    link.style.cursor = 'pointer';
-    name.style.textDecoration = 'none';
 
     name.appendChild(link);
     recipeCard.appendChild(img);
