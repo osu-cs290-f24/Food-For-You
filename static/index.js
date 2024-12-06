@@ -1,11 +1,12 @@
 //Saved recipes container
 var savedRecipesGrid = document.querySelector('.saved-recipes .recipes-grid'); 
 var dropdown = document.querySelectorAll('.dropdown');
+var savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
 var recipes = [];
 
 //Add the recipe cared into the DOM by certain filter 
 function addRecipeCard(imgURL, name){
-  var recipeContent = Handlebars.templates.recipe-CardTemplact({
+  var recipeContent = Handlebars.templates.recipeCardTemplate({
     name:name,
     imgURL:imgURL
   })
@@ -16,10 +17,8 @@ window.addEventListener('DOMContentLoaded', function () {
   //Save all recipes for filtering 
     var recipeCards = document.getElementsByClassName('recipe-card')
     for (var i = 0; i < recipeCards.length; i++) {
-      allPosts.push(parseRecipeCard(recipeCards[i]))
+      recipes.push(parseRecipeCard(recipeCards[i]))
   }
-
-
 })
 
 //Get the data of a recipe card to store into array of recipe card (create object for data)
@@ -33,6 +32,17 @@ function parseRecipeCard(currRecipeCard){
     //Return the recipe object to store in array 
     return recipe
 }
+
+
+// Load recipes on page load
+window.addEventListener('DOMContentLoaded', function () {
+  if (window.location.pathname === '/saved') {
+    console.log('== Rendering saved recipes:', savedRecipes);
+    savedRecipes.forEach((recipe) => {
+      addSavedRecipe(recipe);
+    });
+  }
+});
 
 //Recipe card
 document.addEventListener('click', function (event) {
@@ -110,7 +120,15 @@ function saveRemoveButton(recipeCard, saveButton, recipe) {
     recipe.saved = true;
     saveButton.textContent = 'SAVED';
     saveButton.disabled = true;
-    addSavedRecipe(recipe);
+
+    // Add to savedRecipes
+    savedRecipes.push(recipe);
+    localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+
+    // Add the recipe to saved page 
+    if (window.location.pathname === '/saved') {
+      addSavedRecipe(recipe);
+    }
   } 
   else if (saveButton.textContent === 'REMOVE') {
     recipeCard.style.opacity = '0.5';
@@ -118,7 +136,10 @@ function saveRemoveButton(recipeCard, saveButton, recipe) {
     const timer = setTimeout(() => {
     recipeCard.remove();
     recipe.saved = false;
-      }, 5000);
+     // Remove from savedRecipes
+      savedRecipes = savedRecipes.filter((r) => r.name !== recipe.name);
+      localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+    }, 5000);
 
     saveButton.onclick = () => {
       clearTimeout(timer);
