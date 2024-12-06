@@ -183,3 +183,12 @@ Functionality Added/Worked on:
   - Added text-decoration: none to h2.
   - Reapplied text-decoration: none under a.
   - Also added color:inherit within a.
+
+
+  12/6/2024~12:37AM - Dristi client side JS
+  Files changed:
+    index.js
+   I worked on saving the posts that are in the DOM as object to later
+   properly display posts for filtering. Need to consider adding an link to
+   the recipe card for the actual recipe info. 
+
