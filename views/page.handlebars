@@ -1,4 +1,5 @@
-    <section class="featured-recipes"><!-- Featured Recipes Section -->
+    <section class="featured-recipes"><!-- Home Page -->
+        {{#if home}}
         <h1>Featured Recipe</h1>
             <div class="recipes-grid">
                 {{> recipe-cardTemplate recipeoftheday}}
@@ -10,4 +11,31 @@
             {{/each}}
         </div>
         <a href="/explore" class="all-recipes-link">All Recipes →</a>
+
+        {{/if}}
+
+        {{#if all}}
+        <div class="recipes-grid">
+            {{#each recipeCard}}
+            {{> recipe-cardTemplate}}
+            {{/each}}
+        </div>
+        {{/if}}
+
+        {{#if saved}}
+          <div class="recipes-grid">
+            {{#each recipeCard}}
+            {{> recipe-cardTemplate}}
+            {{/each}}
+            </div>
+        {{/if}}
+
+        {{else}}
+            <div class="recipes-grid">
+                {{#each recipeCard}}
+                {{> recipe-cardTemplate}}
+                {{/each}}
+            </div>
+        {{/if}}
+
     </section>

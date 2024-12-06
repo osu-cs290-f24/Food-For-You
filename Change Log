@@ -192,3 +192,10 @@ Functionality Added/Worked on:
    properly display posts for filtering. Need to consider adding an link to
    the recipe card for the actual recipe info. 
 
+  12/6/2024~12:37AM - Brandon Server JS
+  Files changed:
+  - page.handlebars: modified to use brancing logic for rendering recipes based
+    on server.js
+  - 404.handlebars added, uncommented catch-all in server.js
+  - server.js: added logic for displaying only saved or unsaved, added booleans 
+    for sorting out which recipes to render
