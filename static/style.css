@@ -229,6 +229,7 @@ h1 {
 h2 {
     color: white;
     cursor: pointer;
+    text-decoration: none;
 }
 
 h2:hover {
