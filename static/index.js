@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 })
 
-//Get the data of a recipe card to store into array of recipe card (create object for data)
+//Get the data of a recipe card to store into array of recipe card 
 function parseRecipeCard(currRecipeCard){
     //create recipe object 
     var recipe = {}
@@ -37,8 +37,7 @@ function parseRecipeCard(currRecipeCard){
     return recipe
 }
 
-
-// Load recipes on page load
+// Load recipes on page 
 window.addEventListener('DOMContentLoaded', function () {
   if (window.location.pathname === '/saved') {
     savedRecipes.forEach((recipe) => {
@@ -89,7 +88,6 @@ document.addEventListener('click', function(event) {
 /*
 * This function to add saved recipe to grid
 */
-
 function addSavedRecipe(recipe) {
   if (savedRecipesGrid && recipe.saved) {
     var recipeCard = document.createElement('div');
@@ -133,7 +131,6 @@ function addSavedRecipe(recipe) {
 * This function helps button logic, if SAVE button is clicked,
 * changes to REMOVE, with a 3 second UNDO timer. 
 */
-
 function saveRemoveButton(recipeCard, saveButton, recipe) {
   if (!recipeCard.timer) {
     recipeCard.timer = null;
