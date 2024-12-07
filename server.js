@@ -1,3 +1,4 @@
+
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
@@ -110,5 +111,5 @@ app.listen(port, function () {
 
 //anything else, throw 404 error...leave this at the bottom
 app.get('*', function (req, res) {
-   res.status(404).render('404');
+   res.status(404).render('404', {layout: false});
 });
