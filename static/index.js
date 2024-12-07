@@ -5,10 +5,14 @@ var savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
 var recipes = [];
 
 //Add the recipe cared into the DOM by certain filter 
-function addRecipeCard(imgURL, name){
+function addRecipeCard(imgURL, name, link, rating, season, categories){
   var recipeContent = Handlebars.templates.recipeCardTemplate({
     name:name,
-    imgURL:imgURL
+    imgURL:imgURL,
+    'link-to-recipe': link,
+    rating: rating,
+    season: season,
+    categories: categories,
   })
   var postsSection = document.getElementById('recipe-card')
   postsSection.insertAdjacentHTML("beforeend", recipeContent)
@@ -37,7 +41,6 @@ function parseRecipeCard(currRecipeCard){
 // Load recipes on page load
 window.addEventListener('DOMContentLoaded', function () {
   if (window.location.pathname === '/saved') {
-    console.log('== Rendering saved recipes:', savedRecipes);
     savedRecipes.forEach((recipe) => {
       addSavedRecipe(recipe);
     });
@@ -91,64 +94,81 @@ function addSavedRecipe(recipe) {
   if (savedRecipesGrid && recipe.saved) {
     var recipeCard = document.createElement('div');
     recipeCard.classList.add('recipe-card');
-   
+    recipeCard.setAttribute('name', recipe.categories || '');
+    recipeCard.setAttribute('season', recipe.season || '');
+    recipeCard.setAttribute('rating', recipe.rating || '');
+
+    var saveButton = document.createElement('button');
+    saveButton.classList.add('save-button');
+    saveButton.type = 'button';
+    if (recipe.saved) {
+      saveButton.textContent = 'REMOVE';
+    } else {
+        saveButton.textContent = 'SAVE';
+    } 
     var img = document.createElement('img');
     img.src = recipe.img;
     img.alt = recipe.name;
-    
-    var name = document.createElement('h2');
+
     var link = document.createElement('a');
     link.href = recipe['link-to-recipe'] || '#';
-    //new tab
-    link.target  = '_blank';
-    link.textContent = recipe.name;
+    link.target = '_blank';
 
-    name.appendChild(link);
+    var name = document.createElement('h2');
+    name.textContent = recipe.name;
+    link.appendChild(name);
+
+    var rating = document.createElement('rating');
+    rating.textContent = 'Rating: ' + recipe.rating + '/5';
+
+    recipeCard.appendChild(saveButton); 
     recipeCard.appendChild(img);
-    recipeCard.appendChild(link);
+    recipeCard.appendChild(link); 
+    recipeCard.appendChild(rating); 
     savedRecipesGrid.appendChild(recipeCard);
   }
 }
 
 /*
 * This function helps button logic, if SAVE button is clicked,
-* changes to REMOVE, with a 5 second UNDO timer. 
+* changes to REMOVE, with a 3 second UNDO timer. 
 */
 
 function saveRemoveButton(recipeCard, saveButton, recipe) {
+  if (!recipeCard.timer) {
+    recipeCard.timer = null;
+  } 
+
   if (saveButton.textContent === 'SAVE') {
     recipe.saved = true;
     saveButton.textContent = 'SAVED';
     saveButton.disabled = true;
-
-    // Add to savedRecipes
     savedRecipes.push(recipe);
     localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
-
-    // Add the recipe to saved page 
     if (window.location.pathname === '/saved') {
       addSavedRecipe(recipe);
     }
   } 
   else if (saveButton.textContent === 'REMOVE') {
-    recipeCard.style.opacity = '0.5';
     saveButton.textContent = 'UNDO';
-    const timer = setTimeout(() => {
-    recipeCard.remove();
-    recipe.saved = false;
-     // Remove from savedRecipes
+    recipeCard.style.opacity = '0.5';
+    recipeCard.timer = setTimeout(() => {
+      recipeCard.remove();
+      recipe.saved = false;
       savedRecipes = savedRecipes.filter((r) => r.name !== recipe.name);
       localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
-    }, 5000);
-
-    saveButton.onclick = () => {
-      clearTimeout(timer);
-      recipeCard.style.opacity = '1';
-      recipe.saved = true;
-      saveButton.textContent = 'REMOVE';
-      saveButton.onclick = () => saveRemoveButton(recipeCard, saveButton, recipe);
-    };
+    }, 3000);
   }
+  else if (saveButton.textContent === 'UNDO') {
+    console.log('UNDO clicked!');
+    saveButton.textContent = 'REMOVE';
+    recipeCard.style.opacity = '1';
+    if (recipeCard.timer) {
+      clearTimeout(recipeCard.timer);
+      recipeCard.timer = null;
+      recipe.saved = true;
+    }
+  };
 }
 
 /*
