@@ -5,10 +5,14 @@ var savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
 var recipes = [];
 
 //Add the recipe cared into the DOM by certain filter 
-function addRecipeCard(imgURL, name){
+function addRecipeCard(imgURL, name, link, rating, season, categories){
   var recipeContent = Handlebars.templates.recipeCardTemplate({
     name:name,
-    imgURL:imgURL
+    imgURL:imgURL,
+    'link-to-recipe': link,
+    rating: rating,
+    season: season,
+    categories: categories,
   })
   var postsSection = document.getElementById('recipe-card')
   postsSection.insertAdjacentHTML("beforeend", recipeContent)
@@ -37,7 +41,6 @@ function parseRecipeCard(currRecipeCard){
 // Load recipes on page load
 window.addEventListener('DOMContentLoaded', function () {
   if (window.location.pathname === '/saved') {
-    console.log('== Rendering saved recipes:', savedRecipes);
     savedRecipes.forEach((recipe) => {
       addSavedRecipe(recipe);
     });
@@ -91,21 +94,37 @@ function addSavedRecipe(recipe) {
   if (savedRecipesGrid && recipe.saved) {
     var recipeCard = document.createElement('div');
     recipeCard.classList.add('recipe-card');
-   
+    recipeCard.setAttribute('name', recipe.categories || '');
+    recipeCard.setAttribute('season', recipe.season || '');
+    recipeCard.setAttribute('rating', recipe.rating || '');
+
+    var saveButton = document.createElement('button');
+    saveButton.classList.add('save-button');
+    saveButton.type = 'button';
+    if (recipe.saved) {
+      saveButton.textContent = 'REMOVE';
+    } else {
+        saveButton.textContent = 'SAVE';
+    } 
     var img = document.createElement('img');
     img.src = recipe.img;
     img.alt = recipe.name;
-    
-    var name = document.createElement('h2');
+
     var link = document.createElement('a');
     link.href = recipe['link-to-recipe'] || '#';
-    //new tab
-    link.target  = '_blank';
-    link.textContent = recipe.name;
+    link.target = '_blank';
 
-    name.appendChild(link);
+    var name = document.createElement('h2');
+    name.textContent = recipe.name;
+    link.appendChild(name);
+
+    var rating = document.createElement('p');
+    rating.textContent = 'Rating: ' + recipe.rating + '/5';
+
+    recipeCard.appendChild(saveButton); 
     recipeCard.appendChild(img);
-    recipeCard.appendChild(link);
+    recipeCard.appendChild(link); 
+    recipeCard.appendChild(rating); 
     savedRecipesGrid.appendChild(recipeCard);
   }
 }

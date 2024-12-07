@@ -23,18 +23,19 @@
         {{/if}}
 
         {{#if saved}}
-          <div class="recipes-grid">
-            {{#each savedRecipes}}
-            {{> recipe-cardTemplate}}
-            {{/each}}
-            </div>
-
-        {{else}}
+        <div class="saved-recipes">
             <div class="recipes-grid">
-                {{#each unsavedRecipes}}
-                {{> recipe-cardTemplate}}
+                {{#each savedRecipes}}
+                {{> recipe-cardTemplate }}
                 {{/each}}
             </div>
+        </div>
+        {{else}}
+        <div class="recipes-grid">
+            {{#each unsavedRecipes}}
+            {{> recipe-cardTemplate }}
+            {{/each}}
+        </div>
         {{/if}}
 
     </section>

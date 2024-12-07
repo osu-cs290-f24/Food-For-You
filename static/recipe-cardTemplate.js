@@ -8,14 +8,14 @@ templates['recipe-cardTemplate'] = template({"compiler":[8,">= 4.3.0"],"main":fu
         return undefined
     };
 
-  return "<div class=\"recipe-card\">\n  <button class=\"save-button\" type=\"button\">SAVE</button>\n  <img src=\""
+  return "<div class=\"recipe-card\">\r\n  <button class=\"save-button\" type=\"button\">SAVE</button>\r\n  <img src=\""
     + alias4(((helper = (helper = lookupProperty(helpers,"imgURL") || (depth0 != null ? lookupProperty(depth0,"imgURL") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"imgURL","hash":{},"data":data,"loc":{"start":{"line":3,"column":12},"end":{"line":3,"column":22}}}) : helper)))
     + "\" alt=\""
     + alias4(((helper = (helper = lookupProperty(helpers,"name") || (depth0 != null ? lookupProperty(depth0,"name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":3,"column":29},"end":{"line":3,"column":37}}}) : helper)))
-    + "\">\n  <a href=\""
+    + "\">\r\n  <a href=\""
     + alias4(((helper = (helper = lookupProperty(helpers,"link-to-recipe") || (depth0 != null ? lookupProperty(depth0,"link-to-recipe") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"link-to-recipe","hash":{},"data":data,"loc":{"start":{"line":4,"column":11},"end":{"line":4,"column":29}}}) : helper)))
-    + "\" target=\"_blank\">\n    <h2>"
+    + "\" target=\"_blank\">\r\n    <h2>"
     + alias4(((helper = (helper = lookupProperty(helpers,"name") || (depth0 != null ? lookupProperty(depth0,"name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":5,"column":8},"end":{"line":5,"column":16}}}) : helper)))
-    + "</h2>\n  </a>\n</div>\n";
+    + "</h2>\r\n  </a>\r\n</div>\r\n";
 },"useData":true});
 })();

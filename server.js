@@ -103,19 +103,21 @@ app.get('/saved', function (req, res) {
 
         //store all saved recipes into array
         var savedRecipes = [];
-        for(var i = 0; i < recipeCard.length; i++) {
-            if (recipeCard[i].saved == false) {
-                continue;
-            }
-            else {
-                savedRecipes[i] = recipeCard[i];
+        var unsavedRecipes = [];
+
+        for (var i = 0; i < recipeCard.length; i++) {
+            if (recipeCard[i].saved) {
+                savedRecipes.push(recipeCard[i]);
+            } else {
+                unsavedRecipes.push(recipeCard[i]);
             }
         }
 
     // Render the saved recipes only
     res.status(200).render('page', {
         saved: true,
-        savedRecipes
+        savedRecipes: savedRecipes,
+        unsavedRecipes: unsavedRecipes,
     });
 });
 
@@ -130,4 +132,11 @@ app.listen(port, function () {
 //anything else, throw 404 error...leave this at the bottom
 app.get('*', function (req, res) {
    res.status(404).render('404');
+});
+
+const fs = require('fs');
+
+app.get('/', (req, res) => {
+    const recipes = JSON.parse(fs.readFileSync('path/to/recipe-cardData.json', 'utf8'));
+    res.render('index', { recipes });
 });
