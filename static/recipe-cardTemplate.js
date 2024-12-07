@@ -24,6 +24,6 @@ templates['recipe-cardTemplate'] = template({"compiler":[8,">= 4.3.0"],"main":fu
     + alias4(((helper = (helper = lookupProperty(helpers,"name") || (depth0 != null ? lookupProperty(depth0,"name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":5,"column":12},"end":{"line":5,"column":20}}}) : helper)))
     + "</h2>\r\n    </a>\r\n    <p>Rating: "
     + alias4(((helper = (helper = lookupProperty(helpers,"rating") || (depth0 != null ? lookupProperty(depth0,"rating") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"rating","hash":{},"data":data,"loc":{"start":{"line":7,"column":15},"end":{"line":7,"column":25}}}) : helper)))
-    + "/5</p>\r\n</div>\r\n";
+    + "</p>\r\n</div>\r\n";
 },"useData":true});
 })();
