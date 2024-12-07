@@ -27,7 +27,7 @@ body {
     display: flex;
     gap: 1rem;
     align-items: center;
-    margin-left: 400px;
+    margin-left: 650px;
 }
 
 .navigation a {
@@ -105,7 +105,7 @@ body {
     width: 300px;
     border-radius: 10px;
     overflow: hidden;
-    text-align: left;
+    text-align: center;
     background-color: rgb(179, 186, 194);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: relative;
