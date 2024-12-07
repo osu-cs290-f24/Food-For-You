@@ -199,3 +199,12 @@ Functionality Added/Worked on:
   - 404.handlebars added, uncommented catch-all in server.js
   - server.js: added logic for displaying only saved or unsaved, added booleans 
     for sorting out which recipes to render
+
+  12/6/2024~12:37AM - Anthony CSS work
+  Files changed:
+  - footer.handlebars
+  - style.css
+  Functionality Added/Worked on:
+  - Center aligned the rating on recipe cards.
+  - Changed the dropdown menu to show above the recipe cards.
+  - Fixed the footer now the blue bar is visible within the page.
