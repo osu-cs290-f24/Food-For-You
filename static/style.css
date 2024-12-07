@@ -27,7 +27,7 @@ body {
     display: flex;
     gap: 1rem;
     align-items: center;
-    margin-left: 650px;
+    margin-left: 400px;
 }
 
 .navigation a {
@@ -62,6 +62,7 @@ body {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    z-index: 1000;
 }
 
 .dropdown-content a:hover {background-color: #ddd;}
@@ -105,7 +106,7 @@ body {
     width: 300px;
     border-radius: 10px;
     overflow: hidden;
-    text-align: center;
+    text-align: left;
     background-color: rgb(179, 186, 194);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: relative;
