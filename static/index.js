@@ -119,7 +119,7 @@ function addSavedRecipe(recipe) {
     link.appendChild(name);
 
     var rating = document.createElement('rating');
-    rating.textContent = 'Rating: ' + recipe.rating + '/5';
+    rating.textContent = 'Rating: ' + recipe.rating;
 
     recipeCard.appendChild(saveButton); 
     recipeCard.appendChild(img);
