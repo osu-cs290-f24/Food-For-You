@@ -1,3 +1,24 @@
+//this section is what we need to read and write from the JSON file for rendering the objects
+
+// const fs = require('fs');
+
+// fs.readFile('your-file.json', 'utf-8', (err, data) => {
+//   if (err) throw err;
+
+//   const jsonData = JSON.parse(data);
+
+//   // Modify the data
+//   jsonData.propertyName = 'new value';
+
+//   // Convert back to JSON
+//   const updatedJson = JSON.stringify(jsonData, null, 2); // The 2 adds pretty formatting
+
+//   // Write back to the file
+//   fs.writeFile('your-file.json', updatedJson, err => {
+//     if (err) throw err;
+//     console.log('File updated successfully');
+//   });
+// });
 
 var path = require('path');
 var express = require('express');
@@ -59,13 +80,13 @@ app.get('/allrecipes', function (req, res) {
 app.get('/explore', function (req, res) {
 
     //store all unsaved recipes into array
-    var unsaved = [];
+    var unsavedRecipes = [];
     for(var i = 0; i < recipeCard.length; i++) {
         if (recipeCard[i].saved == true) {
             continue;
         }
         else {
-            unsaved[i] = recipeCard[i];
+            unsavedRecipes[i] = recipeCard[i];
         }
     }
 
@@ -73,7 +94,7 @@ app.get('/explore', function (req, res) {
     //render all recipes not saved
     res.render('page', {
         saved: false,
-        unsaved
+        unsavedRecipes
     });
 
 });
@@ -81,20 +102,20 @@ app.get('/explore', function (req, res) {
 app.get('/saved', function (req, res) {
 
         //store all saved recipes into array
-        var saved = [];
+        var savedRecipes = [];
         for(var i = 0; i < recipeCard.length; i++) {
             if (recipeCard[i].saved == false) {
                 continue;
             }
             else {
-                saved[i] = recipeCard[i];
+                savedRecipes[i] = recipeCard[i];
             }
         }
 
     // Render the saved recipes only
     res.status(200).render('page', {
         saved: true,
-        saved
+        savedRecipes
     });
 });
 

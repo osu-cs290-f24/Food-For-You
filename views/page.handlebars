@@ -10,7 +10,7 @@
             {{> recipe-cardTemplate}}
             {{/each}}
         </div>
-        <a href="/explore" class="all-recipes-link">All Recipes →</a>
+        <a href="/allrecipes" class="all-recipes-link">All Recipes →</a>
 
         {{/if}}
 
@@ -24,14 +24,14 @@
 
         {{#if saved}}
           <div class="recipes-grid">
-            {{#each recipeCard}}
+            {{#each savedRecipes}}
             {{> recipe-cardTemplate}}
             {{/each}}
             </div>
 
         {{else}}
             <div class="recipes-grid">
-                {{#each recipeCard}}
+                {{#each unsavedRecipes}}
                 {{> recipe-cardTemplate}}
                 {{/each}}
             </div>
