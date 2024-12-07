@@ -27,18 +27,18 @@ window.addEventListener('DOMContentLoaded', function () {
 
 //Get the data of a recipe card to store into array of recipe card (create object for data)
 function parseRecipeCard(currRecipeCard){
-    //create recipe object 
-    var recipe = {}
-    //Get the recipe info from image element
-    var recipeImage = currRecipeCard.querySelector('img')
-    recipe.imgURL = recipeImage.src
-    recipe.name = recipeImage.alt
-    //Return the recipe object to store in array 
-    return recipe
+  //create recipe object 
+  var recipe = {}
+  //Get the recipe info from image element
+  var recipeImage = currRecipeCard.querySelector('img')
+  recipe.imgURL = recipeImage.src
+  recipe.name = recipeImage.alt
+  //Return the recipe object to store in array 
+  return recipe
 }
 
 
-// Load recipes on page load
+// Load recipes on page 
 window.addEventListener('DOMContentLoaded', function () {
   if (window.location.pathname === '/saved') {
     savedRecipes.forEach((recipe) => {
@@ -89,7 +89,6 @@ document.addEventListener('click', function(event) {
 /*
 * This function to add saved recipe to grid
 */
-
 function addSavedRecipe(recipe) {
   if (savedRecipesGrid && recipe.saved) {
     var recipeCard = document.createElement('div');
@@ -119,7 +118,7 @@ function addSavedRecipe(recipe) {
     link.appendChild(name);
 
     var rating = document.createElement('rating');
-    rating.textContent = 'Rating: ' + recipe.rating;
+    rating.textContent = 'Rating: ' + rating;
 
     recipeCard.appendChild(saveButton); 
     recipeCard.appendChild(img);
@@ -133,7 +132,6 @@ function addSavedRecipe(recipe) {
 * This function helps button logic, if SAVE button is clicked,
 * changes to REMOVE, with a 3 second UNDO timer. 
 */
-
 function saveRemoveButton(recipeCard, saveButton, recipe) {
   if (!recipeCard.timer) {
     recipeCard.timer = null;
