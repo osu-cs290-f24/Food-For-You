@@ -1,24 +1,3 @@
-//this section is what we need to read and write from the JSON file for rendering the objects
-
-// const fs = require('fs');
-
-// fs.readFile('your-file.json', 'utf-8', (err, data) => {
-//   if (err) throw err;
-
-//   const jsonData = JSON.parse(data);
-
-//   // Modify the data
-//   jsonData.propertyName = 'new value';
-
-//   // Convert back to JSON
-//   const updatedJson = JSON.stringify(jsonData, null, 2); // The 2 adds pretty formatting
-
-//   // Write back to the file
-//   fs.writeFile('your-file.json', updatedJson, err => {
-//     if (err) throw err;
-//     console.log('File updated successfully');
-//   });
-// });
 
 var path = require('path');
 var express = require('express');
@@ -26,6 +5,7 @@ var exphbs = require('express-handlebars');
 var app = express();
 var port = process.env.PORT || 3000;
 var recipeCard = require('./recipe-cardData.json');
+const fs = require('fs');
 
 app.set('view engine', 'handlebars');
 
@@ -131,12 +111,6 @@ app.listen(port, function () {
 
 //anything else, throw 404 error...leave this at the bottom
 app.get('*', function (req, res) {
-   res.status(404).render('404');
+   res.status(404).render('404', {layout: false});
 });
 
-const fs = require('fs');
-
-app.get('/', (req, res) => {
-    const recipes = JSON.parse(fs.readFileSync('path/to/recipe-cardData.json', 'utf8'));
-    res.render('index', { recipes });
-});
