@@ -200,7 +200,7 @@ Functionality Added/Worked on:
   - server.js: added logic for displaying only saved or unsaved, added booleans 
     for sorting out which recipes to render
 
-  12/6/2024~12:37AM - Anthony CSS work
+  12/7/2024~2:37PM - Anthony CSS work
   Files changed:
   - footer.handlebars
   - style.css
