@@ -2,12 +2,12 @@
         {{#if home}}
         <h1>Featured Recipe</h1>
             <div class="recipes-grid">
-                {{> recipe-cardTemplate recipeoftheday}}
+                {{> recipecardTemplate recipeoftheday}}
             </div>
         <h1>Explore Recipes</h1>
         <div class="recipes-grid">
             {{#each recipe}}
-            {{> recipe-cardTemplate}}
+            {{> recipecardTemplate}}
             {{/each}}
         </div>
         <a href="/allrecipes" class="all-recipes-link">All Recipes →</a>
@@ -17,7 +17,7 @@
         {{#if all}}
         <div class="recipes-grid">
             {{#each recipeCard}}
-            {{> recipe-cardTemplate}}
+            {{> recipecardTemplate}}
             {{/each}}
         </div>
         {{/if}}
@@ -26,14 +26,14 @@
         <div class="saved-recipes">
             <div class="recipes-grid">
                 {{#each savedRecipes}}
-                {{> recipe-cardTemplate }}
+                {{> recipecardTemplate }}
                 {{/each}}
             </div>
         </div>
         {{else}}
         <div class="recipes-grid">
             {{#each unsavedRecipes}}
-            {{> recipe-cardTemplate }}
+            {{> recipecardTemplate }}
             {{/each}}
         </div>
         {{/if}}

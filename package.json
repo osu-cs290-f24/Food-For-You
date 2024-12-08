@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
-    "build-template": "handlebars views/partials/recipe-cardTemplate.handlebars -f static/recipe-cardTemplate.js",
+    "build-template": "handlebars views/partials/recipecardTemplate.handlebars -f static/recipecardTemplate.js",
     "start": "npm run build-template && node server.js"
   },
   "dependencies": {
