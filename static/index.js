@@ -136,40 +136,22 @@ document.addEventListener('click', function(event) {
 */
 function addSavedRecipe(recipe) {
   if (savedRecipesGrid && recipe.saved) {
-    var recipeCard = document.createElement('div');
-    recipeCard.classList.add('recipe-card');
-    recipeCard.setAttribute('name', recipe.categories || '');
-    recipeCard.setAttribute('season', recipe.season || '');
-    recipeCard.setAttribute('rating', recipe.rating || '');
+    var recipeContent = Handlebars.templates.recipecardTemplate({
+      name: recipe.name,
+      imgURL: recipe.img,
+      link: recipe.link,
+      rating: recipe.rating,
+      season: recipe.season,
+      categories: recipe.categories,
+    });
 
-    var saveButton = document.createElement('button');
-    saveButton.classList.add('save-button');
-    saveButton.type = 'button';
-    if (recipe.saved) {
+    savedRecipesGrid.insertAdjacentHTML("beforeend", recipeContent);
+    var addedCard = savedRecipesGrid.lastElementChild;
+
+    var saveButton = addedCard.querySelector('.save-button');
+    if (saveButton) {
       saveButton.textContent = 'REMOVE';
-    } else {
-        saveButton.textContent = 'SAVE';
-    } 
-    var img = document.createElement('img');
-    img.src = recipe.img;
-    img.alt = recipe.name;
-
-    var link = document.createElement('a');
-    link.href = recipe[link] || '#';
-    link.target = '_blank';
-
-    var name = document.createElement('h2');
-    name.textContent = recipe.name;
-    link.appendChild(name);
-
-    var rating = document.createElement('rating');
-    rating.textContent = 'Rating: ' + rating;
-
-    recipeCard.appendChild(saveButton); 
-    recipeCard.appendChild(img);
-    recipeCard.appendChild(link); 
-    recipeCard.appendChild(rating); 
-    savedRecipesGrid.appendChild(recipeCard);
+    }
   }
 }
 
