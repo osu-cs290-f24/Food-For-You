@@ -2,21 +2,23 @@
 var savedRecipesGrid = document.querySelector('.saved-recipes .recipes-grid'); 
 var dropdown = document.querySelectorAll('.dropdown');
 var savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
-var recipes= JSON.parse(localStorage.getItem('savedRecipes')) || [];
+// var recipes= JSON.parse(localStorage.getItem('savedRecipes')) || [];
 
-// var recipes = [];
+var recipes = [];
 
 //Add the recipe cared into the DOM by certain filter 
 function addRecipeCard(recipe){
   var recipeContent = Handlebars.templates.recipecardTemplate({
-    name:recipe.name,
+    name: recipe.name,
     imgURL:recipe.imgURL,
-    'link-to-recipe': recipe.link,
+    link: recipe.link,
     rating: recipe.rating,
     season: recipe.season,
     categories: recipe.categories,
   })
-  var recipeGrid = document.getElementById('recipes-grid')
+  console.log(recipeContent)
+  var recipeGrid = document.getElementsByClassName('recipes-grid')[0]
+  console.log(recipeGrid)
   recipeGrid.insertAdjacentHTML("beforeend", recipeContent)
 }
 
@@ -43,12 +45,7 @@ function handleSearchbar (event){
         addRecipeCard(recipe)
       }
     })
-  }
-
-  
-
-
-      
+  }  
 
 }
 var searchBar = document.getElementById("filter-text")
@@ -59,14 +56,14 @@ function parseRecipeCard(currRecipeCard){
   //create recipe object 
   var link = currRecipeCard.querySelector("a").href
   var recipe = {
-    'link-to-recipe' : link
+    link : link
 
   }
   //Get the recipe info from image element
   var recipeImage = currRecipeCard.querySelector('img')
   recipe.imgURL = recipeImage.src
   recipe.name = recipeImage.alt
-  recipe.categories = currRecipeCard.getAttribute("categories")
+  recipe.categories = currRecipeCard.getAttribute("category")
   recipe.season = currRecipeCard.getAttribute("season")
   recipe.rating = currRecipeCard.getAttribute("rating")
 
@@ -123,7 +120,7 @@ document.addEventListener('click', function(event) {
     const savedRecipe = {
       name: recipeName,
       img: recipeImage,
-      'link-to-recipe': link,
+      link: link,
       saved: saveButton.textContent === 'SAVE',
     };
     saveRemoveButton(recipeCard, saveButton, savedRecipe);
@@ -154,7 +151,7 @@ function addSavedRecipe(recipe) {
     img.alt = recipe.name;
 
     var link = document.createElement('a');
-    link.href = recipe['link-to-recipe'] || '#';
+    link.href = recipe[link] || '#';
     link.target = '_blank';
 
     var name = document.createElement('h2');
