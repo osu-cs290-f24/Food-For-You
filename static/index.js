@@ -2,11 +2,11 @@
 var savedRecipesGrid = document.querySelector('.saved-recipes .recipes-grid'); 
 var dropdown = document.querySelectorAll('.dropdown');
 var savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
-// var recipes= JSON.parse(localStorage.getItem('savedRecipes')) || [];
-
 var recipes = [];
 
-//Add the recipe cared into the DOM by certain filter 
+/*
+* This function to adds the recipe cared into the DOM by certain filter 
+*/
 function addRecipeCard(recipe){
   var recipeContent = Handlebars.templates.recipecardTemplate({
     name: recipe.name,
@@ -29,6 +29,10 @@ function addRecipeCard(recipe){
    
 // })
 
+
+/*
+* This function filters recipes through search feature
+*/
 function handleSearchbar (event){
 
   var userInput = event.target.value.toLowerCase()
@@ -177,17 +181,27 @@ function saveRemoveButton(recipeCard, saveButton, recipe) {
   if (!recipeCard.timer) {
     recipeCard.timer = null;
   } 
-
   if (saveButton.textContent === 'SAVE') {
-    recipe.saved = true;
-    saveButton.textContent = 'SAVED';
-    saveButton.disabled = true;
-    savedRecipes.push(recipe);
-    localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
-    if (window.location.pathname === '/saved') {
-      addSavedRecipe(recipe);
-    }
-  } 
+    var duplicate = savedRecipes.some((r) => r.name === recipe.name);
+    if (!duplicate) {
+      recipe.saved = true;
+      savedRecipes.push(recipe);
+      localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+      if (window.location.pathname === '/saved') {
+        addSavedRecipe(recipe);
+      }
+    } 
+    document.querySelectorAll('.recipe-card').forEach((card) => {
+      var recipeCardName = card.querySelector('h2').textContent;
+      if (recipeCardName === recipe.name) {
+        var button = card.querySelector('.save-button');
+        if (button) {
+          button.textContent = 'SAVED';
+          button.disabled = true;
+        }
+      }
+    });
+  }
   else if (saveButton.textContent === 'REMOVE') {
     saveButton.textContent = 'UNDO';
     recipeCard.style.opacity = '0.5';
@@ -259,4 +273,3 @@ function clearFiltersAndReinsertRecipes() {
     card.style.display = 'inline-block';
   });
 }
-
