@@ -208,3 +208,16 @@ Functionality Added/Worked on:
   - Center aligned the rating on recipe cards.
   - Changed the dropdown menu to show above the recipe cards.
   - Fixed the footer now the blue bar is visible within the page.
+
+12/8/2024 - Dristi client side JS work
+Files changed:
+-index.js
+-node_modules directory
+Changes bc of template name change
+-recipe-cardTemplate.handlebars ---> NOW is recipecardTemplate.handlebars
+-main.handlebars
+Changes bc of name change of property
+recipe-cardData.json
+
+Implement auto suggest feature and now can insert recipes in the DOM with handlebars template. Made name changes to properties and one file listed above. 
+
