@@ -2,37 +2,72 @@
 var savedRecipesGrid = document.querySelector('.saved-recipes .recipes-grid'); 
 var dropdown = document.querySelectorAll('.dropdown');
 var savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
+// var recipes= JSON.parse(localStorage.getItem('savedRecipes')) || [];
+
 var recipes = [];
 
 //Add the recipe cared into the DOM by certain filter 
-function addRecipeCard(imgURL, name, link, rating, season, categories){
-  var recipeContent = Handlebars.templates.recipeCardTemplate({
-    name:name,
-    imgURL:imgURL,
-    'link-to-recipe': link,
-    rating: rating,
-    season: season,
-    categories: categories,
+function addRecipeCard(recipe){
+  var recipeContent = Handlebars.templates.recipecardTemplate({
+    name: recipe.name,
+    imgURL:recipe.imgURL,
+    link: recipe.link,
+    rating: recipe.rating,
+    season: recipe.season,
+    categories: recipe.categories,
   })
-  var postsSection = document.getElementById('recipe-card')
-  postsSection.insertAdjacentHTML("beforeend", recipeContent)
+  console.log(recipeContent)
+  var recipeGrid = document.getElementsByClassName('recipes-grid')[0]
+  console.log(recipeGrid)
+  recipeGrid.insertAdjacentHTML("beforeend", recipeContent)
 }
-window.addEventListener('DOMContentLoaded', function () {
-  //Save all recipes for filtering 
-    var recipeCards = document.getElementsByClassName('recipe-card')
-    for (var i = 0; i < recipeCards.length; i++) {
-      recipes.push(parseRecipeCard(recipeCards[i]))
-  }
-})
+
+// window.addEventListener('DOMContentLoaded', function () {
+//   //Save all recipes for filtering 
+
+
+   
+// })
+
+function handleSearchbar (event){
+
+  var userInput = event.target.value.toLowerCase()
+  //TODO: how to disregard empty input
+  if(userInput != " "){
+  //Remove all recipes from the DOM
+    var recipeCardCollection= document.getElementsByClassName("recipe-card")
+    while(recipeCardCollection.length > 0){
+      recipeCardCollection[0].remove()
+    }
+    console.log(recipes)
+    recipes.forEach((recipe) => {
+      if(recipe.name.toLowerCase().includes(userInput)){
+        addRecipeCard(recipe)
+      }
+    })
+  }  
+
+}
+var searchBar = document.getElementById("filter-text")
+searchBar.addEventListener("input", handleSearchbar)
 
 //Get the data of a recipe card to store into array of recipe card (create object for data)
 function parseRecipeCard(currRecipeCard){
   //create recipe object 
-  var recipe = {}
+  var link = currRecipeCard.querySelector("a").href
+  var recipe = {
+    link : link
+
+  }
   //Get the recipe info from image element
   var recipeImage = currRecipeCard.querySelector('img')
   recipe.imgURL = recipeImage.src
   recipe.name = recipeImage.alt
+  recipe.categories = currRecipeCard.getAttribute("category")
+  recipe.season = currRecipeCard.getAttribute("season")
+  recipe.rating = currRecipeCard.getAttribute("rating")
+
+
   //Return the recipe object to store in array 
   return recipe
 }
@@ -40,12 +75,18 @@ function parseRecipeCard(currRecipeCard){
 
 // Load recipes on page 
 window.addEventListener('DOMContentLoaded', function () {
+
+  var recipeCards = document.getElementsByClassName('recipe-card')
+  for (var i = 0; i < recipeCards.length; i++) {
+    recipes.push(parseRecipeCard(recipeCards[i]))
+  }
+
   if (window.location.pathname === '/saved') {
     savedRecipes.forEach((recipe) => {
       addSavedRecipe(recipe);
-    });
+    })
   }
-});
+})
 
 //Recipe card
 document.addEventListener('click', function (event) {
@@ -79,7 +120,7 @@ document.addEventListener('click', function(event) {
     const savedRecipe = {
       name: recipeName,
       img: recipeImage,
-      'link-to-recipe': link,
+      link: link,
       saved: saveButton.textContent === 'SAVE',
     };
     saveRemoveButton(recipeCard, saveButton, savedRecipe);
@@ -110,7 +151,7 @@ function addSavedRecipe(recipe) {
     img.alt = recipe.name;
 
     var link = document.createElement('a');
-    link.href = recipe['link-to-recipe'] || '#';
+    link.href = recipe[link] || '#';
     link.target = '_blank';
 
     var name = document.createElement('h2');
