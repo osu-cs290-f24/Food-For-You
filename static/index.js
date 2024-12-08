@@ -55,7 +55,9 @@ function handleSearchbar (event){
 var searchBar = document.getElementById("filter-text")
 searchBar.addEventListener("input", handleSearchbar)
 
-//Get the data of a recipe card to store into array of recipe card (create object for data)
+/*
+* This function gets the data of a recipe card to store into array of recipe card (create object for data)
+*/
 function parseRecipeCard(currRecipeCard){
   //create recipe object 
   var link = currRecipeCard.querySelector("a").href
@@ -71,7 +73,7 @@ function parseRecipeCard(currRecipeCard){
   recipe.season = currRecipeCard.getAttribute("season")
   recipe.rating = currRecipeCard.getAttribute("rating")
 
-
+  console.log('Parsed Recipe:', recipe);
   //Return the recipe object to store in array 
   return recipe
 }
@@ -98,7 +100,8 @@ document.addEventListener('click', function (event) {
     var card = event.target.closest('.recipe-card');
     var recipeName = card.querySelector('h2').textContent;
     var recipeImage = card.querySelector('img').src;
-    displayRecipe({name: recipeName, img: recipeImage});
+    var recipeRating = card.getAttribute('rating');
+    displayRecipe({name: recipeName, img: recipeImage, rating: recipeRating});
     }
   });
 
@@ -119,14 +122,17 @@ document.addEventListener('click', function(event) {
     recipeCard = saveButton.closest('.recipe-card');
     recipeName = recipeCard.querySelector('h2').textContent;
     recipeImage = recipeCard.querySelector('img').src;
+    recipeRating = recipeCard.getAttribute('rating');
     link = recipeCard.querySelector('a').href;
 
     const savedRecipe = {
       name: recipeName,
       img: recipeImage,
       link: link,
+      rating: recipeRating,
       saved: saveButton.textContent === 'SAVE',
     };
+    console.log('Saving Recipe:', savedRecipe); 
     saveRemoveButton(recipeCard, saveButton, savedRecipe);
   }
 })
@@ -144,7 +150,8 @@ function addSavedRecipe(recipe) {
       season: recipe.season,
       categories: recipe.categories,
     });
-
+    console.log(localStorage.getItem('savedRecipes'));
+    console.log('Recipe Rating:', recipe.rating);
     savedRecipesGrid.insertAdjacentHTML("beforeend", recipeContent);
     var addedCard = savedRecipesGrid.lastElementChild;
 
@@ -152,6 +159,18 @@ function addSavedRecipe(recipe) {
     if (saveButton) {
       saveButton.textContent = 'REMOVE';
     }
+  }
+}
+/*
+* This function displays recipes
+*/
+function displayRecipe(recipe) {
+  var modal = document.getElementById('recipeModal');
+  if (modal) {
+    modal.querySelector('h2').textContent = recipe.name;
+    modal.querySelector('img').src = recipe.img;
+    modal.querySelector('#rating').textContent = recipe.rating;
+    modal.classList.add('show');
   }
 }
 
@@ -206,17 +225,6 @@ function saveRemoveButton(recipeCard, saveButton, recipe) {
   };
 }
 
-/*
-* This function displays recipes
-*/
-function displayRecipe(recipe) {
-  var modal = document.getElementById('recipeModal');
-  if (modal) {
-    modal.querySelector('h2').textContent = recipe.name;
-    modal.querySelector('img').src = recipe.img;
-    modal.classList.add('show');
-  }
-}
 
 /*
 * This function to filter recipes by search criteria
