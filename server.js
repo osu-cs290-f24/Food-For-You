@@ -44,19 +44,6 @@ app.get('/allrecipes', function (req, res) {
     
 });
 
-// app.get('/filtered', function (req, res) {
-
-    //possibly remove this, filtering can be done by server or client
-    //filter here if server, else just load all and filter in the DOM
-    
-    //render recipes based on user's filter preferences
-    // res.render('recipe-cardTemplate', {
-    //     filtered: true,
-    //     recipeCard
-    // });
-    
-// });
-
 app.get('/explore', function (req, res) {
 
     //store all unsaved recipes into array
@@ -69,7 +56,6 @@ app.get('/explore', function (req, res) {
             unsavedRecipes[i] = recipeCard[i];
         }
     }
-
 
     //render all recipes not saved
     res.render('page', {
