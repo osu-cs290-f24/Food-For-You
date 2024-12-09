@@ -1,5 +1,6 @@
-    <section class="featured-recipes"><!-- Home Page -->
+    <section class="featured-recipes">
         {{#if home}}
+        <!-- Home Page -->
         <h1>Featured Recipe</h1>
             <div class="recipes-grid">
                 {{> recipecardTemplate recipeoftheday}}
@@ -11,10 +12,10 @@
             {{/each}}
         </div>
         <a href="/allrecipes" class="all-recipes-link">All Recipes →</a>
-
         {{/if}}
 
         {{#if all}}
+        <!-- All Recipes Page -->
         <div class="recipes-grid">
             {{#each recipeCard}}
             {{> recipecardTemplate}}
@@ -23,6 +24,7 @@
         {{/if}}
 
         {{#if saved}}
+        <!-- Saved Page -->
         <div class="saved-recipes">
             <div class="recipes-grid">
                 {{#each savedRecipes}}
@@ -30,8 +32,11 @@
                 {{/each}}
             </div>
         </div>
-        {{else}}
-        {{>dropdown}}
+        {{/if}}
+
+        {{#if explore}}
+        <!-- Explore Page -->
+        {{> dropdown}}  
         <div class="recipes-grid">
             {{#each unsavedRecipes}}
             {{> recipecardTemplate }}

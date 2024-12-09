@@ -69,7 +69,7 @@ app.get('/explore', function (req, res) {
 
     //render all recipes not saved
     res.render('page', {
-        saved: false,
+        explore: true,
         unsavedRecipes
     });
 
