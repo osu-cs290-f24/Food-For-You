@@ -19,16 +19,26 @@ app.engine('handlebars', exphbs.engine({
 
 app.get('/', function (req, res) {
 
-    var random = Math.floor(Math.random() * recipeCard.length);
+    var index = new Set();
+
+    while (index.size < 4) {
+        var randomIndex = Math.floor(Math.random() * recipeCard.length);
+        index.add(randomIndex);
+    }
+
+    // Convert the Set to an array
+    var random = Array.from(index);
+
+
     var explore = [];
-    explore[0] = recipeCard[Math.floor(Math.random() * recipeCard.length)];
-    explore[1] = recipeCard[Math.floor(Math.random() * recipeCard.length)];
-    explore[2] = recipeCard[Math.floor(Math.random() * recipeCard.length)];
-    
+    explore[0] = recipeCard[random[1]];
+    explore[1] = recipeCard[random[2]];
+    explore[2] = recipeCard[random[3]];
+
     //render a few random recipes the user hasn't saved
     res.render('page', {
         home: true,
-        recipeoftheday: recipeCard[random],
+        recipeoftheday: recipeCard[random[0]],
         recipe: explore
     });
     
