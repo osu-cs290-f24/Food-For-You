@@ -23,7 +23,6 @@
         {{/if}}
 
         {{#if saved}}
-        {{>dropdown}}
         <div class="saved-recipes">
             <div class="recipes-grid">
                 {{#each savedRecipes}}
@@ -32,6 +31,7 @@
             </div>
         </div>
         {{else}}
+        {{>dropdown}}
         <div class="recipes-grid">
             {{#each unsavedRecipes}}
             {{> recipecardTemplate }}
