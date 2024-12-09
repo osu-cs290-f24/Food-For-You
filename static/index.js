@@ -28,7 +28,20 @@ function addRecipeCard(recipe){
 
    
 // })
-
+function handleSeasonDropdown(event){
+  var choice = event.target.value
+  if(choice != ""){
+    var recipeCardCollection= document.getElementsByClassName("recipe-card")
+    while(recipeCardCollection.length > 0){
+      recipeCardCollection[0].remove()
+    }
+    recipes.forEach((recipe) => {
+      if(recipe.season == choice){
+        addRecipeCard(recipe)
+      }
+    })
+  }
+}
 
 /*
 * This function filters recipes through search feature
@@ -36,24 +49,30 @@ function addRecipeCard(recipe){
 function handleSearchbar (event){
 
   var userInput = event.target.value.toLowerCase()
+  var recipeCardCollection= document.getElementsByClassName("recipe-card")
+  while(recipeCardCollection.length > 0){
+    recipeCardCollection[0].remove()
+  }
   //TODO: how to disregard empty input
-  if(userInput != " "){
-  //Remove all recipes from the DOM
-    var recipeCardCollection= document.getElementsByClassName("recipe-card")
-    while(recipeCardCollection.length > 0){
-      recipeCardCollection[0].remove()
-    }
-    console.log(recipes)
+  if(userInput != ""){
+    // console.log(recipes)
     recipes.forEach((recipe) => {
       if(recipe.name.toLowerCase().includes(userInput)){
         addRecipeCard(recipe)
       }
     })
-  }  
+  }else{
+    recipes.forEach((recipe) => {
+        addRecipeCard(recipe)
+    })
+  }
 
 }
-var searchBar = document.getElementById("filter-text")
-searchBar.addEventListener("input", handleSearchbar)
+
+// var seasonDropdown = document.getElementById("season-dropdown")
+// seasonDropdown.addEventListener("change", handleSeasonDropdown)
+// var searchBar = document.getElementById("filter-text")
+// searchBar.addEventListener("input", handleSearchbar)
 
 /*
 * This function gets the data of a recipe card to store into array of recipe card (create object for data)
@@ -92,6 +111,9 @@ window.addEventListener('DOMContentLoaded', function () {
       addSavedRecipe(recipe);
     })
   }
+
+  var searchBar = document.getElementById("filter-text")
+  searchBar.addEventListener("input", handleSearchbar)
 })
 
 //Recipe card
