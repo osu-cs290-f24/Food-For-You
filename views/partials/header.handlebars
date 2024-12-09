@@ -8,34 +8,87 @@
         <a href="/explore">EXPLORE</a>
         <a href="/saved">SAVED</a>
         <div class="dropdown">
-            <button class="dropbtn">BY TYPE</button>
-            <div class="dropdown-content">
-                <a href="#">Breakfast</a>
-                <a href="#">Lunch</a>
-                <a href="#">Dinner</a>
-                <a href="#">Dessert</a>
-                <a href="#">Midnight Snack</a>
-            </div>
+            <select class= "dropbtn" id="categories-dropdown">
+                <div class="dropdown-content">
+                    <option selected value="">ALL CATEGORIES</option>
+                    <option >Breakfast</option>
+                    <option >Lunch</option>
+                    <option >Dinner</option>
+                    <option >Dessert</option>
+                    <option >Midnight Snack</option>
+                </div>
+            </select>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">BY SEASON</button>
-            <div class="dropdown-content">
-                <a href="#">Winter❄</a>
-                <a href="#">Spring💧</a>
-                <a href="#">Summer☀️</a>
-                <a href="#">Fall🍁</a>
-            </div>
+            <select class= "dropbtn" id="season-dropdown">
+                <div class="dropdown-content">
+                        <option selected value="">ALL SEASONS</option>
+                        <option >Winter❄</option>
+                        <option >Spring💧</option>
+                        <option>Summer☀️</option>
+                        <option>Fall🍁</option>
+                </div>
+            </select>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">BY RATING</button>
-            <div class="dropdown-content">
-                <a href="#">⭐</a>
-                <a href="#">⭐⭐</a>
-                <a href="#">⭐⭐⭐</a>
-                <a href="#">⭐⭐⭐⭐</a>
-                <a href="#">⭐⭐⭐⭐⭐</a>
-            </div>
+            <select class= "dropbtn dropdown-content" id="rating-dropdown">
+                {{!-- <div class="dropdown-content"> --}}
+                    <option selected value="">ALL RATING</option>
+                    <option >⭐</option>
+                    <option >⭐⭐</option>
+                    <option >⭐⭐⭐</option>
+                    <option >⭐⭐⭐⭐</option>
+                    <option >⭐⭐⭐⭐⭐</option>
+                {{!-- </div> --}}
+            </select>
         </div>
     </nav>
 </header>
+ {{!-- {{>search}} --}}
+
+{{!-- <header class="header">
+    <div class="logo-image-container">
+            <img class="logo-image" src="logo.png" alt="Food For You logo">
+    </div>
+    <a class="logo" href="/"><div class="logo">Food For You</div></a>
+    <nav class="navigation">
+
+        <a href="/explore">EXPLORE</a>
+        <a href="/saved">SAVED</a>
+        <div class="dropdown">
+            <div class="dropdown-content">
+            <select class="dropbtn" id="categories-dropdown">
+                <option selected value="">BY TYPE</option>
+                <option >Breakfast</option >
+                <option >Lunch</option >
+                <option >Dinner</option >
+                <option >Dessert</option >
+                <option >Midnight Snack</option >
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-content">
+                <select class="dropbtn" id= "season-dropdown">
+                    <option selected value="">BY SEASON</option>
+                    <option >Winter❄</option >
+                    <option >Spring💧</option >
+                    <option >Summer☀️</option >
+                    <option >Fall🍁</option >
+                </select>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-content">
+                <select class="dropbtn" id= "rating-dropdown">
+                <option selected value="">BY RATING</option>
+                    <option >⭐</option >
+                    <option >⭐⭐</option >
+                    <option >⭐⭐⭐</option >
+                    <option >⭐⭐⭐⭐</option >
+                    <option >⭐⭐⭐⭐⭐</option >
+                </selected>
+            </div>
+        </div>
+    </nav>
+</header> --}}
  {{>search}}
