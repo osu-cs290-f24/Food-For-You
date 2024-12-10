@@ -22,8 +22,11 @@ function addRecipeCard(recipe){
   recipeGrid.insertAdjacentHTML("beforeend", recipeContent)
 }
 
+/*
+* This function gets all the filtering conditions, removes all recipes from the DOM
+*/
 function handleFilters(){
-  //Get all the filtering conditions
+   //Get all the filtering conditions
   var filters = {
     name: document.getElementById("filter-text").value.trim(),
     categories: document.getElementById('categories-dropdown').value.trim(),
@@ -33,38 +36,41 @@ function handleFilters(){
 
   console.log(filters)
 
-  //Remove all recipes from the DOM
-  var recipeCardCollection= document.getElementsByClassName("recipe-card")
+   //Remove all recipes from the DOM
+  var recipeCardCollection= document.getElementsByClassName("recipe-card");
   while(recipeCardCollection.length > 0){
-    recipeCardCollection[0].remove()
+    recipeCardCollection[0].remove();
   }
 
   recipes.forEach((recipe) => {
     if(passFilterTest(recipe,filters)){
-      addRecipeCard(recipe)
+      addRecipeCard(recipe);
     }
   })
 
 }
 
+/*
+* This function filters all recipes from the DOM
+*/
 function passFilterTest(recipe, filters){
   if(filters.name){
     var recipeName = recipe.name.toLowerCase()
     var filterName = filters.name.toLowerCase()
     if(recipeName.indexOf(filterName) === -1){
-      return false
+      return false;
     }
   }
 
   if (filters.categories !== "all"){
     if(recipe.categories.toLowerCase() !== filters.categories.toLowerCase()){
-      return false
+      return false;
     }
   }
   
   if (filters.season !== "all"){
     if(recipe.season.toLowerCase() !== filters.season.toLowerCase()){
-      return false
+      return false;
     }
   }
   
@@ -72,10 +78,10 @@ function passFilterTest(recipe, filters){
     var starCount = recipe.rating.split('⭐').length-1
     // console.log(starCount)
     if(starCount !== Number(filters.rating)){
-      return false
+      return false;
     }
   }
-  return true
+  return true;
 }
 
 /*
@@ -86,31 +92,28 @@ function parseRecipeCard(currRecipeCard){
   var link = currRecipeCard.querySelector("a").href
   var recipe = {
     link : link
-
   }
   //Get the recipe info from image element
-  var recipeImage = currRecipeCard.querySelector('img')
-  recipe.imgURL = recipeImage.src
-  recipe.name = recipeImage.alt
-  recipe.categories = currRecipeCard.getAttribute("category")
-  recipe.season = currRecipeCard.getAttribute("season")
-  recipe.rating = currRecipeCard.getAttribute("rating")
+  var recipeImage = currRecipeCard.querySelector('img');
+  recipe.imgURL = recipeImage.src;
+  recipe.name = recipeImage.alt;
+  recipe.categories = currRecipeCard.getAttribute("category");
+  recipe.season = currRecipeCard.getAttribute("season");
+  recipe.rating = currRecipeCard.getAttribute("rating");
 
   //Return the recipe object to store in array 
-  return recipe
+  return recipe;
 }
 
 
 // Load recipes on page 
 window.addEventListener('DOMContentLoaded', function () {
-
  
-  var recipeCards = document.getElementsByClassName('recipe-card')
+  var recipeCards = document.getElementsByClassName('recipe-card');
   for (var i = 0; i < recipeCards.length; i++) {
-    recipes.push(parseRecipeCard(recipeCards[i]))
+    recipes.push(parseRecipeCard(recipeCards[i]));
   }
 
-  //
   if (window.location.pathname === '/saved') {
     savedRecipes.forEach((recipe) => {
       addSavedRecipe(recipe);
@@ -121,20 +124,28 @@ window.addEventListener('DOMContentLoaded', function () {
     Auto-suggest/ dynamic changing as soons as filter input changed
    */ 
   //Filter if input in search
-  var searchBar = document.getElementById("filter-text")
-  searchBar.addEventListener("input", handleFilters)
+  var searchBar = document.getElementById("filter-text") 
+  if (searchBar) {
+    searchBar.addEventListener("input", handleFilters)
+  }
 
   //Filter if season changed
-  var seasonDropdown = document.getElementById("season-dropdown")
-  seasonDropdown.addEventListener("change", handleFilters)
+  var seasonDropdown = document.getElementById("season-dropdown");
+  if (seasonDropdown) {
+  seasonDropdown.addEventListener("change", handleFilters);
+  }
 
   //Filter if categories changed
-  var categoriesDropdown = document.getElementById("categories-dropdown")
-  categoriesDropdown.addEventListener("change", handleFilters)
+  var categoriesDropdown = document.getElementById("categories-dropdown");
+  if (categoriesDropdown) {
+  categoriesDropdown.addEventListener("change", handleFilters);
+  }
 
   //Filter if rating changed
-  var ratingsDropdown = document.getElementById("rating-dropdown")
-  ratingsDropdown.addEventListener("change", handleFilters)
+  var ratingsDropdown = document.getElementById("rating-dropdown");
+  if (ratingsDropdown) {
+  ratingsDropdown.addEventListener("change", handleFilters);
+  }
 })
 
 //Recipe card
@@ -154,8 +165,6 @@ dropdown.forEach(function(dropdown) {
   var content = dropdown.querySelector('.dropdown-content');
   button.addEventListener('click', function(event) {
     event.stopPropagation();
-    //error here **********************************************************
-    content.classList.toggle('show');
   });
 });
 
@@ -179,10 +188,10 @@ document.addEventListener('click', function(event) {
     console.log('Saving Recipe:', savedRecipe); 
     saveRemoveButton(recipeCard, saveButton, savedRecipe);
   }
-})
+});
 
 /*
-* This function to add saved recipe to grid
+* This function to add saved recipe to grid at end of current saved recipes
 */
 function addSavedRecipe(recipe) {
   if (savedRecipesGrid && recipe.saved) {
@@ -205,6 +214,7 @@ function addSavedRecipe(recipe) {
     }
   }
 }
+
 /*
 * This function displays recipes
 */
@@ -219,13 +229,13 @@ function displayRecipe(recipe) {
 }
 
 /*
-* This function helps button logic, if SAVE button is clicked,
-* changes to REMOVE, with a 3 second UNDO timer. 
+* This function helps button logic, if SAVE button is clicked, changes to REMOVE, with a 3 second UNDO timer. 
 */
 function saveRemoveButton(recipeCard, saveButton, recipe) {
   if (!recipeCard.timer) {
     recipeCard.timer = null;
   } 
+  //If not duplicate, add to saved and set SAVE button to SAVED
   if (saveButton.textContent === 'SAVE') {
     var duplicate = savedRecipes.some((r) => r.name === recipe.name);
     if (!duplicate) {
@@ -247,6 +257,7 @@ function saveRemoveButton(recipeCard, saveButton, recipe) {
       }
     });
   }
+  //If REMOVED is selected, change opacity and start 3 second timer
   else if (saveButton.textContent === 'REMOVE') {
     saveButton.textContent = 'UNDO';
     recipeCard.style.opacity = '0.5';
@@ -257,6 +268,7 @@ function saveRemoveButton(recipeCard, saveButton, recipe) {
       localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
     }, 3000);
   }
+  //If UNDO is selected, return to original state of REMOVE, end timer
   else if (saveButton.textContent === 'UNDO') {
     console.log('UNDO clicked!');
     saveButton.textContent = 'REMOVE';
@@ -266,9 +278,8 @@ function saveRemoveButton(recipeCard, saveButton, recipe) {
       recipeCard.timer = null;
       recipe.saved = true;
     }
-  };
+  }
 }
-
 
 /*
 * This function to filter recipes by search criteria
@@ -283,6 +294,7 @@ function filterCards() {
     var recipeSeason = (card.getAttribute('season') || '').toLowerCase();
     var recipeRating = (card.getAttribute('rating') || '').toLowerCase();
     
+    //If matches, display
     var matchType = !type || recipeType.includes(type.trim());
     var matchSeason = !season || recipeSeason.includes(season.trim());
     var matchRating =!rating || recipeRating.includes(rating.trim());
