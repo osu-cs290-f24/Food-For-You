@@ -22,57 +22,6 @@ function addRecipeCard(recipe){
   recipeGrid.insertAdjacentHTML("beforeend", recipeContent)
 }
 
-// window.addEventListener('DOMContentLoaded', function () {
-//   //Save all recipes for filtering 
-
-
-   
-// // })
-// function handleSeasonDropdown(event){
-//   var choice = event.target.value
-//   if(choice != ""){
-//     var recipeCardCollection= document.getElementsByClassName("recipe-card")
-//     while(recipeCardCollection.length > 0){
-//       recipeCardCollection[0].remove()
-//     }
-//     recipes.forEach((recipe) => {
-//       if(recipe.season == choice){
-//         addRecipeCard(recipe)
-//       }
-//     })
-//   }else{
-//     recipes.forEach((recipe) => {
-//       addRecipeCard(recipe)
-//    })
-//   }
-// }
-
-/*
-* This function filters recipes through search feature
-*/
-// function handleSearchbar (event){
-
-//   var userInput = event.target.value.toLowerCase()
-//   var recipeCardCollection= document.getElementsByClassName("recipe-card")
-//   while(recipeCardCollection.length > 0){
-//     recipeCardCollection[0].remove()
-//   }
-//   //TODO: how to disregard empty input
-//   if(userInput != ""){
-//     // console.log(recipes)
-//     recipes.forEach((recipe) => {
-//       if(recipe.name.toLowerCase().includes(userInput)){
-//         addRecipeCard(recipe)
-//       }
-//     })
-//   }else{
-//     recipes.forEach((recipe) => {
-//         addRecipeCard(recipe)
-//     })
-//   }
-
-// }
-
 function handleFilters(){
   //Get all the filtering conditions
   var filters = {
@@ -128,10 +77,6 @@ function passFilterTest(recipe, filters){
   }
   return true
 }
-// var seasonDropdown = document.getElementById("season-dropdown")
-// seasonDropdown.addEventListener("change", handleSeasonDropdown)
-// var searchBar = document.getElementById("filter-text")
-// searchBar.addEventListener("input", handleSearchbar)
 
 /*
 * This function gets the data of a recipe card to store into array of recipe card (create object for data)
@@ -151,7 +96,6 @@ function parseRecipeCard(currRecipeCard){
   recipe.season = currRecipeCard.getAttribute("season")
   recipe.rating = currRecipeCard.getAttribute("rating")
 
-  console.log('Parsed Recipe:', recipe);
   //Return the recipe object to store in array 
   return recipe
 }
@@ -160,30 +104,37 @@ function parseRecipeCard(currRecipeCard){
 // Load recipes on page 
 window.addEventListener('DOMContentLoaded', function () {
 
+ 
   var recipeCards = document.getElementsByClassName('recipe-card')
   for (var i = 0; i < recipeCards.length; i++) {
     recipes.push(parseRecipeCard(recipeCards[i]))
   }
 
+  //
   if (window.location.pathname === '/saved') {
     savedRecipes.forEach((recipe) => {
       addSavedRecipe(recipe);
     })
   }
 
+   /*
+    Auto-suggest/ dynamic changing as soons as filter input changed
+   */ 
+  //Filter if input in search
   var searchBar = document.getElementById("filter-text")
   searchBar.addEventListener("input", handleFilters)
 
+  //Filter if season changed
   var seasonDropdown = document.getElementById("season-dropdown")
   seasonDropdown.addEventListener("change", handleFilters)
 
+  //Filter if categories changed
   var categoriesDropdown = document.getElementById("categories-dropdown")
   categoriesDropdown.addEventListener("change", handleFilters)
 
+  //Filter if rating changed
   var ratingsDropdown = document.getElementById("rating-dropdown")
   ratingsDropdown.addEventListener("change", handleFilters)
-  // var seasonDropdown = document.getElementById("season-dropdown")
-  // seasonDropdown.addEventListener("change", handleSeasonDropdown)
 })
 
 //Recipe card
