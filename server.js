@@ -107,5 +107,7 @@ app.listen(port, function () {
 
 //anything else, throw 404 error...leave this at the bottom
 app.get('*', function (req, res) {
-   res.status(404).render('404', {layout: false});
+   res.status(404).render('404', {
+    home: true
+   });
 });

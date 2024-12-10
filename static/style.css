@@ -12,6 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0px;
 }
 
 .header {
@@ -19,6 +20,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    padding-left: 100px;
+    padding-right: 100px;
+
     /* Added a black background with white text */
     background-color: rgb(108, 121, 148);
     color: #fff;
@@ -50,6 +54,7 @@ body {
     font-size: 16px;
     border: none;
     font-family: Cambira, monospace;
+    margin-left: 10px;
 }
 
 .dropdown {
@@ -283,4 +288,26 @@ h2:hover {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+
+.error-container {
+    font-family: Cambira, monospace;;
+    text-align: center;
+    color: rgb(108, 121, 148);
+}
+  
+.error-container h2 {
+    text-decoration: none;
+    font-size: 128px;
+    margin-top: 50px;
+    margin-bottom: 0;
+    color: rgb(108, 121, 148);
+
+}
+
+.error-container h3 {
+    font-size: 32px;
+    margin: 0;
+    color: rgb(108, 121, 148);
 }
