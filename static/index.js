@@ -16,9 +16,9 @@ function addRecipeCard(recipe){
     season: recipe.season,
     categories: recipe.categories,
   })
-  console.log(recipeContent)
+  // console.log(recipeContent)
   var recipeGrid = document.getElementsByClassName('recipes-grid')[0]
-  console.log(recipeGrid)
+  // console.log(recipeGrid)
   recipeGrid.insertAdjacentHTML("beforeend", recipeContent)
 }
 
@@ -27,33 +27,111 @@ function addRecipeCard(recipe){
 
 
    
-// })
-
+// // })
+// function handleSeasonDropdown(event){
+//   var choice = event.target.value
+//   if(choice != ""){
+//     var recipeCardCollection= document.getElementsByClassName("recipe-card")
+//     while(recipeCardCollection.length > 0){
+//       recipeCardCollection[0].remove()
+//     }
+//     recipes.forEach((recipe) => {
+//       if(recipe.season == choice){
+//         addRecipeCard(recipe)
+//       }
+//     })
+//   }else{
+//     recipes.forEach((recipe) => {
+//       addRecipeCard(recipe)
+//    })
+//   }
+// }
 
 /*
 * This function filters recipes through search feature
 */
-function handleSearchbar (event){
+// function handleSearchbar (event){
 
-  var userInput = event.target.value.toLowerCase()
-  //TODO: how to disregard empty input
-  if(userInput != " "){
+//   var userInput = event.target.value.toLowerCase()
+//   var recipeCardCollection= document.getElementsByClassName("recipe-card")
+//   while(recipeCardCollection.length > 0){
+//     recipeCardCollection[0].remove()
+//   }
+//   //TODO: how to disregard empty input
+//   if(userInput != ""){
+//     // console.log(recipes)
+//     recipes.forEach((recipe) => {
+//       if(recipe.name.toLowerCase().includes(userInput)){
+//         addRecipeCard(recipe)
+//       }
+//     })
+//   }else{
+//     recipes.forEach((recipe) => {
+//         addRecipeCard(recipe)
+//     })
+//   }
+
+// }
+
+function handleFilters(){
+  //Get all the filtering conditions
+  var filters = {
+    name: document.getElementById("filter-text").value.trim(),
+    categories: document.getElementById('categories-dropdown').value.trim(),
+    season: document.getElementById('season-dropdown').value.trim(),
+    rating: document.getElementById('rating-dropdown').value.trim()
+  }
+
+  console.log(filters)
+
   //Remove all recipes from the DOM
-    var recipeCardCollection= document.getElementsByClassName("recipe-card")
-    while(recipeCardCollection.length > 0){
-      recipeCardCollection[0].remove()
+  var recipeCardCollection= document.getElementsByClassName("recipe-card")
+  while(recipeCardCollection.length > 0){
+    recipeCardCollection[0].remove()
+  }
+
+  recipes.forEach((recipe) => {
+    if(passFilterTest(recipe,filters)){
+      addRecipeCard(recipe)
     }
-    console.log(recipes)
-    recipes.forEach((recipe) => {
-      if(recipe.name.toLowerCase().includes(userInput)){
-        addRecipeCard(recipe)
-      }
-    })
-  }  
+  })
 
 }
-var searchBar = document.getElementById("filter-text")
-searchBar.addEventListener("input", handleSearchbar)
+
+function passFilterTest(recipe, filters){
+  if(filters.name){
+    var recipeName = recipe.name.toLowerCase()
+    var filterName = filters.name.toLowerCase()
+    if(recipeName.indexOf(filterName) === -1){
+      return false
+    }
+  }
+
+  if (filters.categories !== "all"){
+    if(recipe.categories.toLowerCase() !== filters.categories.toLowerCase()){
+      return false
+    }
+  }
+  
+  if (filters.season !== "all"){
+    if(recipe.season.toLowerCase() !== filters.season.toLowerCase()){
+      return false
+    }
+  }
+  
+  if (filters.rating != "all"){
+    var starCount = recipe.rating.split('⭐').length-1
+    // console.log(starCount)
+    if(starCount !== Number(filters.rating)){
+      return false
+    }
+  }
+  return true
+}
+// var seasonDropdown = document.getElementById("season-dropdown")
+// seasonDropdown.addEventListener("change", handleSeasonDropdown)
+// var searchBar = document.getElementById("filter-text")
+// searchBar.addEventListener("input", handleSearchbar)
 
 /*
 * This function gets the data of a recipe card to store into array of recipe card (create object for data)
@@ -92,6 +170,20 @@ window.addEventListener('DOMContentLoaded', function () {
       addSavedRecipe(recipe);
     })
   }
+
+  var searchBar = document.getElementById("filter-text")
+  searchBar.addEventListener("input", handleFilters)
+
+  var seasonDropdown = document.getElementById("season-dropdown")
+  seasonDropdown.addEventListener("change", handleFilters)
+
+  var categoriesDropdown = document.getElementById("categories-dropdown")
+  categoriesDropdown.addEventListener("change", handleFilters)
+
+  var ratingsDropdown = document.getElementById("rating-dropdown")
+  ratingsDropdown.addEventListener("change", handleFilters)
+  // var seasonDropdown = document.getElementById("season-dropdown")
+  // seasonDropdown.addEventListener("change", handleSeasonDropdown)
 })
 
 //Recipe card
@@ -111,6 +203,7 @@ dropdown.forEach(function(dropdown) {
   var content = dropdown.querySelector('.dropdown-content');
   button.addEventListener('click', function(event) {
     event.stopPropagation();
+    //error here **********************************************************
     content.classList.toggle('show');
   });
 });
