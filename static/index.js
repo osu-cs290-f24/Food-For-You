@@ -34,7 +34,7 @@ function handleFilters(){
     rating: document.getElementById('rating-dropdown').value.trim()
   }
 
-  console.log(filters)
+  // console.log(filters)
 
    //Remove all recipes from the DOM
   var recipeCardCollection= document.getElementsByClassName("recipe-card");
@@ -105,6 +105,38 @@ function parseRecipeCard(currRecipeCard){
   return recipe;
 }
 
+// function passSavedFilterTest(recipe, filters){
+//   if(filters.name){
+//     var recipeName = recipe.name.toLowerCase()
+//     var filterName = filters.name.toLowerCase()
+//     if(recipeName.indexOf(filterName) === -1){
+//       return false;
+//     }
+//   }
+//   return true
+// }
+
+function handleSavedFilters(){
+  var filters = {
+    name: document.getElementById("filter-text").value.trim(),
+    categories: "all",
+    season: "all",
+    rating: "all"
+  }
+
+  var recipeCardCollection= document.getElementsByClassName("recipe-card");
+  while(recipeCardCollection.length > 0){
+    recipeCardCollection[0].remove();
+  }
+
+  savedRecipes.forEach((recipe) => {
+    if(passFilterTest(recipe,filters)){
+      addSavedRecipe(recipe);
+    }
+  })
+
+}
+
 
 // Load recipes on page 
 window.addEventListener('DOMContentLoaded', function () {
@@ -118,33 +150,40 @@ window.addEventListener('DOMContentLoaded', function () {
     savedRecipes.forEach((recipe) => {
       addSavedRecipe(recipe);
     })
-  }
 
-   /*
-    Auto-suggest/ dynamic changing as soons as filter input changed
-   */ 
-  //Filter if input in search
-  var searchBar = document.getElementById("filter-text") 
-  if (searchBar) {
-    searchBar.addEventListener("input", handleFilters)
-  }
+    var searchBar = document.getElementById("filter-text") 
+    if (searchBar) {
+      searchBar.addEventListener("input", handleSavedFilters)
+    }
 
-  //Filter if season changed
-  var seasonDropdown = document.getElementById("season-dropdown");
-  if (seasonDropdown) {
-  seasonDropdown.addEventListener("change", handleFilters);
-  }
+  }else{
 
-  //Filter if categories changed
-  var categoriesDropdown = document.getElementById("categories-dropdown");
-  if (categoriesDropdown) {
-  categoriesDropdown.addEventListener("change", handleFilters);
-  }
+    /*
+      Auto-suggest/ dynamic changing as soons as filter input changed
+    */ 
+    //Filter if input in search
+    var searchBar = document.getElementById("filter-text") 
+    if (searchBar) {
+      searchBar.addEventListener("input", handleFilters)
+    }
 
-  //Filter if rating changed
-  var ratingsDropdown = document.getElementById("rating-dropdown");
-  if (ratingsDropdown) {
-  ratingsDropdown.addEventListener("change", handleFilters);
+    //Filter if season changed
+    var seasonDropdown = document.getElementById("season-dropdown");
+    if (seasonDropdown) {
+    seasonDropdown.addEventListener("change", handleFilters);
+    }
+
+    //Filter if categories changed
+    var categoriesDropdown = document.getElementById("categories-dropdown");
+    if (categoriesDropdown) {
+    categoriesDropdown.addEventListener("change", handleFilters);
+    }
+
+    //Filter if rating changed
+    var ratingsDropdown = document.getElementById("rating-dropdown");
+    if (ratingsDropdown) {
+    ratingsDropdown.addEventListener("change", handleFilters);
+    }
   }
 })
 
