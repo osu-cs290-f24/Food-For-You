@@ -221,3 +221,8 @@ recipe-cardData.json
 
 Implement auto suggest feature and now can insert recipes in the DOM with handlebars template. Made name changes to properties and one file listed above. 
 
+12/9/2024 Dristi filtering and handlebars changes
+Finished filtering for explore plage in index.js. Now can properly filter based on all filters applied. Had to make changes to header handlebars, now creating a
+dropdown partial with select tag used instead of button poroperly filter. The issues with the stars were fixed in the template using count to compare filter value to number of 
+stars in recipe card. 
+
