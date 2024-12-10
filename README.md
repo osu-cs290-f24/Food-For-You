@@ -17,3 +17,7 @@ Main pages:
   - Saved Page: user's saved recipes, filters
   - Navigation Bar
   - Footer bar: social media links
+
+Functionality:
+  - Recipe data stored in JSON file
+  - Actual recipe information is on its own document (users can add comments to this document) which can be accessed by clicking the recipe card
