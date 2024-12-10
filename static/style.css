@@ -1,9 +1,17 @@
 /* CSS Based off of the Template */
 
+/* for footer fix */
+main {
+    flex-grow: 1;
+}
 body {
     font-family: Cambira, monospace;
     background-color: #fff;
     color: white;
+    /* Dristi- Added to make footer stay at bottom */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header {
