@@ -3,7 +3,7 @@
         "//comments": "",
         "name": "Apple Pie from Scratch",
         "imgURL": "https://sallysbakingaddiction.com/wp-content/uploads/2015/10/chai-spice-apple-pie.jpg",
-        "categories": "",
+        "categories": "dessert",
         "season": "",
         "rating": "⭐⭐⭐⭐",
         "link": "https://sallysbakingaddiction.com/homemade-apple-pie-with-chai-spices/print/71263/"
@@ -12,8 +12,8 @@
         "//comments": "",
         "name": "Vegetable Pasta Bake",
         "imgURL": "https://www.inspiredtaste.net/wp-content/uploads/2019/04/Vegetable-Baked-Pasta-Recipe-3-1200.jpg",
-        "categories": "",
-        "season": "",
+        "categories": "dinner",
+        "season": "winter",
         "rating": "⭐⭐⭐⭐⭐",
         "link": "https://www.inspiredtaste.net/40176/vegetable-baked-pasta/itr_print/"
     },
@@ -21,8 +21,8 @@
         "//comments": "",
         "name": "Garlic Butter Steak Yakisoba",
         "imgURL": "https://www.krumpli.co.uk/wp-content/uploads/2024/01/Spicy-Beef-Yakisoba-Noodles-1-1600.jpg",
-        "categories": "",
-        "season": "",
+        "categories": "dinner",
+        "season": "fall",
         "rating": "⭐⭐⭐",
         "link": "https://www.cabagges.world/garlic-steak-yakisoba"
     },
@@ -30,8 +30,8 @@
         "//comments": "",
         "name": "Pad Thai",
         "imgURL": "https://www.recipetineats.com/tachyon/2020/01/Chicken-Pad-Thai_9-SQ.jpg",
-        "categories": "",
-        "season": "",
+        "categories": "lunch",
+        "season": "spring",
         "rating": "⭐⭐⭐⭐⭐",
         "link": "https://www.recipetineats.com/wprm_print/pad-thai#"
     },
@@ -39,8 +39,8 @@
         "//comments": "",
         "name": "Breakfast Smoothie Bowl",
         "imgURL": "https://simplegreensmoothies.com/wp-content/uploads/tropical-smoothie-bowl-mango-healthy-plant-based-2.jpg",
-        "categories": "",
-        "season": "",
+        "categories": "breakfast",
+        "season": "summer",
         "rating": "⭐⭐⭐⭐",
         "link": "https://acrobat.adobe.com/id/urn:aaid:sc:US:ec5a4daf-30c1-4615-8d76-4c8f285abd2e"
     },
@@ -99,7 +99,7 @@
         "//comments": "",
         "name": "Pavlova",
         "imgURL": "https://sugarspunrun.com/wp-content/uploads/2021/03/Pavlova-Recipe-2-of-2-360x480.jpg",
-        "categories": "",
+        "categories": "midnight snack",
         "season": "spring",
         "rating": "⭐⭐⭐",
         "link": "https://acrobat.adobe.com/id/urn:aaid:sc:US:3453a7a7-c6aa-46c0-9b1c-1b9523b867a0"
@@ -109,7 +109,7 @@
         "//comments": "",
         "name": "Turkey Pot Pie",
         "imgURL": "https://sugarspunrun.com/wp-content/uploads/2023/10/Turkey-pot-pie-3-of-7.jpg",
-        "categories": "",
+        "categories": "dinner",
         "season": "fall",
         "rating": "⭐⭐⭐⭐",
         "link": "https://acrobat.adobe.com/id/urn:aaid:sc:US:3dc72443-6b11-4447-9810-53350a064e2e"
@@ -129,7 +129,7 @@
         "//comments": "",
         "name": "Tomato Basil Soup",
         "imgURL": "https://sugarspunrun.com/wp-content/uploads/2024/08/Fresh-Roasted-Tomato-Basil-Soup-7-of-9.jpg",
-        "categories": "Lunch",
+        "categories": "lunch",
         "season": "summer",
         "rating": "⭐⭐⭐⭐⭐",
         "link": "https://acrobat.adobe.com/id/urn:aaid:sc:US:eff90527-7055-4c16-87d5-1da84f878b90"
@@ -139,7 +139,7 @@
         "//comments": "",
         "name": "Frozen Peach Bellini",
         "imgURL": "https://sugarspunrun.com/wp-content/uploads/2017/07/peach-bellini-recipe-Sugar-Spun-Run-1-of-1-7.jpg",
-        "categories": "Lunch",
+        "categories": "lunch",
         "season": "summer",
         "rating": "⭐⭐⭐⭐⭐",
         "link": "https://acrobat.adobe.com/id/urn:aaid:sc:US:e3f4362d-e412-4ff1-b808-1251de01f064"
@@ -149,7 +149,7 @@
         "//comments": "",
         "name": "Cucumber Salad",
         "imgURL": "https://sugarspunrun.com/wp-content/uploads/2024/05/cucumber-salad-3-of-5.jpg",
-        "categories": "Lunch",
+        "categories": "lunch",
         "season": "summer",
         "rating": "⭐⭐⭐⭐⭐",
         "link": "https://acrobat.adobe.com/id/urn:aaid:sc:US:357b7c93-5fc6-47d5-8c55-73000f9352be"
