@@ -1,5 +1,6 @@
 # Final-Project-Food-For-You
 final-project-food-for-you created by GitHub Classroom
+
 Created By: Savhanna Beene, Valerie Lam, Dristi Patel, James Beene, Anthony Lucero
 
 Sections
