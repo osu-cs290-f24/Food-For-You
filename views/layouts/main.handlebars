@@ -11,7 +11,12 @@
 </head>
 <body>
     {{>header}}
-    {{{body}}}
+    {{#if home}}
+    {{else}}
+        {{>search}}
+    {{/if}}
+
+        {{{body}}}
     {{>footer}}
 </body>
 </html>
