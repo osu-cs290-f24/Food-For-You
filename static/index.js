@@ -224,7 +224,7 @@ document.addEventListener('click', function(event) {
       rating: recipeRating,
       saved: saveButton.textContent === 'SAVE',
     };
-    console.log('Saving Recipe:', savedRecipe); 
+    // console.log('Saving Recipe:', savedRecipe); 
     saveRemoveButton(recipeCard, saveButton, savedRecipe);
   }
 });
@@ -242,8 +242,8 @@ function addSavedRecipe(recipe) {
       season: recipe.season,
       categories: recipe.categories,
     });
-    console.log(localStorage.getItem('savedRecipes'));
-    console.log('Recipe Rating:', recipe.rating);
+    // console.log(localStorage.getItem('savedRecipes'));
+    // console.log('Recipe Rating:', recipe.rating);
     savedRecipesGrid.insertAdjacentHTML("beforeend", recipeContent);
     var addedCard = savedRecipesGrid.lastElementChild;
 
@@ -309,7 +309,7 @@ function saveRemoveButton(recipeCard, saveButton, recipe) {
   }
   //If UNDO is selected, return to original state of REMOVE, end timer
   else if (saveButton.textContent === 'UNDO') {
-    console.log('UNDO clicked!');
+    // console.log('UNDO clicked!');
     saveButton.textContent = 'REMOVE';
     recipeCard.style.opacity = '1';
     if (recipeCard.timer) {
