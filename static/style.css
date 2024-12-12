@@ -1,10 +1,8 @@
 /* CSS Based off of the Template */
 
 /* for footer fix */
-html {
+main {
     flex-grow: 1;
-    resize: both;
-    
 }
 
 .navigation {
@@ -71,7 +69,7 @@ body {
     /* Dristi- Added to make footer stay at bottom */
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    min-height: 100vh;
     margin: 0px;
 }
 
@@ -217,7 +215,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: rgb(108, 121, 148);
+    background-color: rgb(108, 121, 148); 
 }
 
 .social-icons img {
