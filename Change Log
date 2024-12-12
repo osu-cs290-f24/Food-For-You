@@ -226,3 +226,6 @@ Finished filtering for explore plage in index.js. Now can properly filter based 
 dropdown partial with select tag used instead of button poroperly filter. The issues with the stars were fixed in the template using count to compare filter value to number of 
 stars in recipe card. 
 
+12/10-12/11/24 Anthony, Valerie, Dristi
+Worked on fixing any CSS (footer, spacing, title, etc.)
+
