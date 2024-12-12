@@ -1,20 +1,24 @@
 /* CSS Based off of the Template */
 
 /* for footer fix */
-main {
+html {
     flex-grow: 1;
-}
-body {
-    font-family: Cambira, monospace;
-    background-color: #fff;
-    color: white;
-    /* Dristi- Added to make footer stay at bottom */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0px;
+    resize: both;
+    
 }
 
+.navigation {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Header */
 .header {
     display: flex;
     justify-content: space-between;
@@ -23,11 +27,12 @@ body {
     padding-left: 100px;
     padding-right: 100px;
 
-    /* Added a black background with white text */
+    /* Added a blue background with white text */
     background-color: rgb(108, 121, 148);
     color: #fff;
 }
 
+/* Logo Text */
 .logo {
     font-size: 2.5rem;
     font-weight: bold;
@@ -35,18 +40,12 @@ body {
     color: white; 
 }
 
-.navigation {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin-left: 995px;
+.logo-image {
+    width: 90px;
+    height: 90px;
 }
 
-.navigation a {
-    text-decoration: none;
-    color: #fff;
-}
-
+/* Dropdown filters on explore page */
 .dropbtn {
     background-color: rgb(108, 121, 148);
     color: white;
@@ -56,45 +55,32 @@ body {
     font-family: Cambira, monospace;
     margin-left: 10px;
 }
-
 .dropdown {
     position: relative;
     display: inline-block;
     
 }
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1000;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
 .dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
 .dropdown:hover .dropbtn {background-color:rgb(78, 96, 134);}
 
-.social-icons img {
-    width: 50px;
-    height: 50px;
+/* for body of html, does not include header & footer */
+body {
+    font-family: monospace;
+    background-color: #fff;
+    color: white;
+    /* Dristi- Added to make footer stay at bottom */
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    margin: 0px;
 }
 
+/* Recipe of the day */
 #recipe-of-the-day {
     width: 500px;
 }
 
-.Featured Recipes Section
+/* Feature Recipes */
 .featured-recipes {
     text-align: center;
     padding: 2rem;
@@ -109,13 +95,17 @@ body {
     text-align: center;
 }
 
+/* Recipes Grid */
 .recipes-grid {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
+/* Recipe card */
 .recipe-card {
     width: 300px;
     border-radius: 10px;
@@ -137,20 +127,6 @@ body {
     text-align: center;
 }
 
-.all-recipes-link {
-    display: inline-block;
-    margin-top: 1rem;
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    font-size: 1.25rem;
-    transition: color 0.3s;
-}
-
-.all-recipes-link:hover {
-    color: #555;
-}
-
 @media (max-width: 768px) {
     .recipes-grid {
         flex-direction: column;
@@ -158,86 +134,42 @@ body {
     }
 }
 
-.saved-about {
-    text-align: center;
-    background-color: rgb(179, 186, 194);
-    border-radius: 5px;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    margin-top: 15px;
+/* Filter and search */
+
+.filter-input-container {
+width: 100%;
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+background-color: rgb(108, 121, 148);
+color: white;
+padding-bottom: 20px;
 }
 
-/* "IN-PROGRESS: Attempting to make the same button utilized for Benny's List */
-#sell-something-button {
-    font-size: 20px;
-    color: white;
-    padding: 10px;
-    background-color: orange;
-    border: 1px solid #ababab;
-    border-radius: 5px;
-    font-weight: lighter;
-    cursor: pointer;
-} 
+.filter-input-element {
+margin: 0 5px;
+flex: 1 1 100%;
+}
 
-/* Filter and search */
-.filter-container {
-    min-width: 200px;
-    max-width: 200px;
-    margin: 10px 10px auto 10px;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: rgb(108, 121, 148);
-  }
+.filter-input {
+font-size: 14px;
+width: 25%;
+margin-left: 10px;
+padding: 3px;
+border: 1px solid black;
+border-radius: 3px;
+background-color: white;
+}
 
-  .filter-input-container {
-    width: 100%;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    background-color: rgb(108, 121, 148);
-    color: white;
-    padding-bottom: 20px;
-  }
+.filter-input-label {
+    padding-left: 30px;
+}
 
-  .filter-input-element {
-    margin: 0 5px;
-    flex: 1 1 100%;
-  }
-  
-  .filter-input {
-    font-size: 14px;
-    width: 25%;
-    margin-left: 10px;
-    padding: 3px;
-    border: 1px solid black;
-    border-radius: 3px;
-    background-color: white;
-  }
-  
-  .filter-fieldset {
-    flex: 1 100%;
-    border: 1px solid #ababab;
-  }
-
-  .recipes-grid {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-
-  .modal-header {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-
-
+/* Header css */
 h1 {
     background-color: rgb(108, 121, 148);
     color: white;
     margin: 0;
-    padding-left: 30px;
-}
-
-.filter-input-label {
     padding-left: 30px;
 }
 
@@ -250,19 +182,7 @@ h2:hover {
     text-decoration: underline;
 }
 
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: rgb(108, 121, 148);
-}
-
-.logo-image {
-    width: 75px;
-    height: 75px;
-}
-
+/* Save Button */
 .save-button {
     position: absolute;
     top: 2%;
@@ -285,12 +205,27 @@ h2:hover {
     background-color:rgb(108, 121, 148);
 }
 
+/* Links */
 a {
     text-decoration: none;
     color: inherit;
 }
 
+/* Footer css */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgb(108, 121, 148);
+}
 
+.social-icons img {
+    width: 50px;
+    height: 50px;
+}
+
+/* 404 Page */
 .error-container {
     font-family: Cambira, monospace;;
     text-align: center;
